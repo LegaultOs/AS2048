@@ -4,6 +4,14 @@ public class CasellaDTO {
 	
 	int i,j,numero;
 
+	public CasellaDTO (int i,int j, int num)
+	{
+		this.i=i;
+		this.j=j;
+		this.numero=num;
+		
+		
+	}
 	public int getI() {
 		return i;
 	}

@@ -24,7 +24,7 @@ public class Casella {
 	public CasellaDTO getInfo()
 	{
 		
-		return null;
+		return new CasellaDTO(numeroFila, numeroColumna, numero);
 		
 	}
 	

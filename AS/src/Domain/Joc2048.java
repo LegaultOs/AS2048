@@ -18,11 +18,12 @@ public class Joc2048 {
 		
 		if(instance==null)
 		{
-			return new Joc2048();
+			instance= new Joc2048();
+			
 			
 		}
 		
-		else return instance;
+		return instance;
 		
 		
 	}

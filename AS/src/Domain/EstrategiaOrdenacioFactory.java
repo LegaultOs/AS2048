@@ -12,11 +12,11 @@ public class EstrategiaOrdenacioFactory {
 	{
 		if(factory==null)
 		{
-			return new EstrategiaOrdenacioFactory();
+			factory= new EstrategiaOrdenacioFactory();
 			
 		}
 		
-		else return factory;
+		return factory;
 		
 		
 	}

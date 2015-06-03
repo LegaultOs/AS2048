@@ -6,12 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
@@ -63,6 +67,16 @@ public class loginWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//caso de uso de Login
+				
+				//ferAutenticacio
+				//haremos un try y catch de las 2 excepciones
+				// y las controlaremos en la vista.
+				
+				//si el login es correcto,cambiaremos de ventana
+				JFrame jf = new menuWindow();
+				jf.setVisible(true);
+				
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(51, 255, 91, 23);

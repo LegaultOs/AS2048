@@ -8,7 +8,7 @@ public class Partida {
 	private boolean estaAcabada;
 	private boolean estaGuanyada;
 	private int puntuacio;
-	private Casella[][] casella;//relacion con la tabla de casella
+	private Casella[][] casella = new Casella[4][4];//relacion con la tabla de casella
 	
 	
 	public int getIdPartida() {

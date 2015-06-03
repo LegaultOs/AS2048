@@ -46,6 +46,10 @@ public class startWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Cargaremos la ventana de login
+				JFrame jf = new loginWindow();
+				jf.setVisible(true);
+				
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(90, 86, 122, 23);

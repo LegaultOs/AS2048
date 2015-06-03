@@ -44,6 +44,14 @@ public class menuWindow extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton button = new JButton("Jugar Partida");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame jf = new gameWindow();
+				jf.setVisible(true);
+				
+				dispose();
+			}
+		});
 		button.setBounds(163, 117, 122, 23);
 		contentPane.add(button);
 		

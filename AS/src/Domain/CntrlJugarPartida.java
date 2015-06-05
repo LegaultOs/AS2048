@@ -66,12 +66,10 @@ public class CntrlJugarPartida {
 	
 	public MovimentDTO ferMoviment(String tipusMov)
 	{
-		MovimentDTO mov = new MovimentDTO();
-		mov.setCasellesAmbNumero(p.ferMoviment(tipusMov));
-		mov.setAcabada(p.checkAcabada());
-		mov.setGuanyada(p.isEstaGuanyada());
+		MovimentDTO mov = p.ferMoviment(tipusMov);
+		
 		mov.setMillorPunt(jugador.getMillorPuntuacio());
-		mov.setPuntuacio(p.getPuntuacio());
+		
 		return mov;
 	}
 	

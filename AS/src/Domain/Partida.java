@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 import Domain.DTO.CasellaDTO;
+import Domain.DTO.MovimentDTO;
 
 public class Partida {
 	private int idPartida;
@@ -19,7 +20,7 @@ public class Partida {
 	public void setIdPartida(int idPartida) {
 		this.idPartida = idPartida;
 	}
-	public boolean checkAcabada() {
+	public boolean isAcabada() {
 		return estaAcabada;
 	}
 	public void setEstaAcabada(boolean estaAcabada) {
@@ -136,11 +137,90 @@ public class Partida {
 		
 	}
 	
-	public ArrayList<CasellaDTO> ferMoviment(String tipusMov)
+	public boolean checkAcabada()
 	{
+		boolean acabat =true;
+		for(int y=0;y<4 && acabat;y++)
+		{
+			for(int x=0;x<4 && acabat;x++)
+			{
+				Casella c = casella[y][x];
+				Integer num = c.getNumero();
+				
+				if(num== null || num==0)
+				{
+					acabat=false;
+					
+				}
+				
+				if(x>0 && acabat)
+				{
+					
+					Casella esq = casella[y][x-1];
+					boolean b =c.equals(esq);
+					if(b==true)acabat=false;
+					
+				}
+				
+				if(x<3 && acabat)
+				{
+					
+					Casella dre = casella[y][x+1];
+					boolean b =c.equals(dre);
+					if(b==true)acabat=false;
+					
+				}
+				
+				if(y>0 && acabat)
+				{
+					
+					Casella up = casella[y-1][x];
+					boolean b =c.equals(up);
+					if(b==true)acabat=false;
+					
+				}
+				
+				if(y<3 && acabat)
+				{
+					
+					Casella bot = casella[y+1][x];
+					boolean b =c.equals(bot);
+					if(b==true)acabat=false;
+					
+				}
+				
+			}
+		}	
+		return acabat;
+	}
+	
+	public MovimentDTO ferMoviment(String tipusMov)
+	{
+		boolean merge = ferMov(tipusMov);
+		
+		if(estaGuanyada==true)estaAcabada=true;
+		else if(merge==true)addRandomNum();
+		else if(merge==false)
+		{
+			
+			boolean acabat = checkAcabada();
+			
+			if(acabat==true)
+			{
+				estaAcabada=true;
+				
+			}
+			
+			
+		}
 		
 		
-		return null;
+		MovimentDTO mov = new MovimentDTO();
+		mov.setCasellesAmbNumero(casellesAmbNumero());
+		mov.setAcabada(estaAcabada);
+		mov.setGuanyada(estaGuanyada);
+		mov.setPuntuacio(puntuacio);
+		return mov;
 	}
 	
 	private boolean ferMov(String tipusMov)

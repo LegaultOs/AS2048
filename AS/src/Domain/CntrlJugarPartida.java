@@ -77,15 +77,13 @@ public class CntrlJugarPartida {
 	
 	
 	
-	public ArrayList<JugadorDTO> obtenirRanking()
+	public ArrayList<JugadorDTO> obtenirRanking() throws Exception
 	
 	{
-		Joc2048 joc =Joc2048.getInstance();
-		int cont=0;//no se para que sirve el cont ahora mismo xD
-		//obtendriamos los jugadores y se lo pasariamos a ranking
+		CtrlConsultarRanquing ccr =  new CtrlConsultarRanquing();
 		
-		ArrayList<Jugador> jug = new ArrayList<Jugador>();
-		return joc.obtenirRanquing(jug, cont);
+		ArrayList<JugadorDTO> result = ccr.consultarRanking();
+		return result ;
 		
 	}
 }

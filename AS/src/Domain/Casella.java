@@ -2,6 +2,11 @@ package Domain;
 
 import Domain.DTO.CasellaDTO;
 
+
+//provaprovaporva
+
+
+
 public class Casella {
 	
 	int numeroFila;

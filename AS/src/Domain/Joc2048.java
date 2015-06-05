@@ -2,9 +2,11 @@ package Domain;
 
 import java.util.ArrayList;
 
+import Domain.DTO.JugadorDTO;
+
 public class Joc2048 {
 
-	private Joc2048 instance;
+	private static Joc2048 instance;
 	private int idPartida;	
 	private EstrategiaOrdenacio strat;
 	private Joc2048()
@@ -13,7 +15,7 @@ public class Joc2048 {
 		
 	}
 	
-	public Joc2048 getInstance()
+	public static Joc2048 getInstance()
 	{
 		
 		if(instance==null)

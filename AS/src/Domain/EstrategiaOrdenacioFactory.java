@@ -2,13 +2,13 @@ package Domain;
 
 public class EstrategiaOrdenacioFactory {
 	
-	private EstrategiaOrdenacioFactory factory;
+	private static EstrategiaOrdenacioFactory factory;
 	
 	
 	private EstrategiaOrdenacioFactory()
 	{}
 	
-	public EstrategiaOrdenacioFactory getInstance()
+	public static EstrategiaOrdenacioFactory getInstance()
 	{
 		if(factory==null)
 		{

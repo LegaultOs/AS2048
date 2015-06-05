@@ -1,5 +1,7 @@
 package Domain;
 
+import Domain.DTO.CasellaDTO;
+
 public class Casella {
 	
 	int numeroFila;

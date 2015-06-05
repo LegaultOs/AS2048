@@ -1,4 +1,4 @@
-package Domain;
+package Domain.DTO;
 //Clase hecha para rellenar la tabla de ranquing.
 public class JugadorDTO {
 

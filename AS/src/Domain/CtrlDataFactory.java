@@ -8,7 +8,7 @@ import Model.CtrlUsuariRegistratBD;
 
 public class CtrlDataFactory {
 	
-	private CtrlDataFactory instance;
+	private static CtrlDataFactory instance;
 	private ICtrlUsuariRegistrat ctrlur;
 	private ICtrlJugador ctrlj;
 	private ICtrlJoc2048 ctrlj2048;
@@ -19,7 +19,7 @@ public class CtrlDataFactory {
 	private CtrlDataFactory(){}
 	
 	
-	public CtrlDataFactory getInstance()
+	public static CtrlDataFactory getInstance()
 	{
 		if(instance==null)
 		{

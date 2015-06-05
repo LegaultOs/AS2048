@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import Domain.DTO.JugadorDTO;
+
 public class EstrategiaOrdenacioPunts implements EstrategiaOrdenacio {
 
 	@Override

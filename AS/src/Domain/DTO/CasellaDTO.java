@@ -1,4 +1,4 @@
-package Domain;
+package Domain.DTO;
 
 public class CasellaDTO {
 	

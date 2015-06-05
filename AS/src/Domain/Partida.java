@@ -3,6 +3,8 @@ package Domain;
 import java.util.ArrayList;
 import java.lang.Math;
 
+import Domain.DTO.CasellaDTO;
+
 public class Partida {
 	private int idPartida;
 	private boolean estaAcabada;
@@ -17,7 +19,7 @@ public class Partida {
 	public void setIdPartida(int idPartida) {
 		this.idPartida = idPartida;
 	}
-	private boolean checkAcabada() {
+	public boolean checkAcabada() {
 		return estaAcabada;
 	}
 	public void setEstaAcabada(boolean estaAcabada) {

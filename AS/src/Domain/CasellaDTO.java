@@ -2,8 +2,8 @@ package Domain;
 
 public class CasellaDTO {
 	
-	int i,j,numero;
-
+	int i,j;
+	Integer numero;
 	public CasellaDTO (int i,int j, int num)
 	{
 		this.i=i;
@@ -28,7 +28,7 @@ public class CasellaDTO {
 		this.j = j;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 

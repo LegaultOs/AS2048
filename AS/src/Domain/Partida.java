@@ -8,7 +8,7 @@ public class Partida {
 	private boolean estaAcabada;
 	private boolean estaGuanyada;
 	private int puntuacio;
-	private Casella[][] casella = new Casella[4][4];//relacion con la tabla de casella
+	private Casella[][] casella ;//relacion con la tabla de casella
 	
 	
 	public int getIdPartida() {
@@ -41,19 +41,57 @@ public class Partida {
 	public Partida(int id)
 	{
 		idPartida = id;
+		puntuacio =0;
+		estaAcabada=false;
+		estaGuanyada=false;
+		casella  = new Casella[4][4];
+		
 		
 	}
 	
 	public void inicializar()
 	{
+		for(int i =1;i<=4;i++)
+		{
+			for(int j =1;j<=4;j++)
+			{
+				Casella c = new Casella(i,j);
+				casella[i-1][j-1]=c;
+				
+				
+			}
+			
+			
+		}
+		
+		addRandomNum();
+		addRandomNum();
 		
 		
 	}
 	
-	public ArrayList<Casella> casellesAmbNumero()
+	public ArrayList<CasellaDTO> casellesAmbNumero()
 	{
+		ArrayList<CasellaDTO> result = new ArrayList<CasellaDTO>();
 		
-		return null;
+		for(int i=0; i<4;i++)
+		{
+			for(int j=0; j<4;j++)
+			{
+				
+				CasellaDTO inf = casella[i][j].getInfo();
+				
+				if(inf.getNumero()!=null)
+				{
+					
+					result.add(inf);
+				}
+				
+			}
+			
+		}
+		
+		return result;
 	}
 	
 	private void addRandomNum()
@@ -81,10 +119,10 @@ public class Partida {
 		if(casellabuida.size()>0)
 		{
 		
-			n= (int) (Math.random()%casellabuida.size());
+			n= (int) (Math.random()*casellabuida.size());
 			c1=casellabuida.get(n);
 			
-			if((Math.random()%10)/10.f>0.1)randomN=2;
+			if((Math.random()*10)/10.f>0.1)randomN=2;
 			else randomN=4;
 			
 			c1.setNumero(randomN);

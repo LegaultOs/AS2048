@@ -17,7 +17,7 @@ public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 	public UsuariRegistrat getUsuari(String userN) {
 			
 			AnnotationConfiguration config = new AnnotationConfiguration(); 
-			config.addAnnotatedClass(Casella.class); 
+			config.addAnnotatedClass(UsuariRegistrat.class); 
 			config.configure("hibernate.cfg.xml"); 
 			
 			new SchemaExport(config).create(true, true);
@@ -38,7 +38,7 @@ public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 	public void insertaUsuari(UsuariRegistrat usuari){
 		
 		AnnotationConfiguration config = new AnnotationConfiguration(); 
-		config.addAnnotatedClass(Casella.class); 
+		config.addAnnotatedClass(UsuariRegistrat.class); 
 		config.configure("hibernate.cfg.xml"); 
 		
 		new SchemaExport(config).create(true, true);

@@ -10,7 +10,7 @@ public class Joc2048 {
 	private int idPartida;	
 	private EstrategiaOrdenacio estrategia;
 	
-	private Joc2048()
+	public Joc2048()
 	{	}
 	
 	public static Joc2048 getInstance()

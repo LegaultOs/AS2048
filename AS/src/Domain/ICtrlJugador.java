@@ -9,5 +9,6 @@ public interface ICtrlJugador {
 	public ArrayList<Jugador> tots();
 	public Jugador getJugadorPerEmail(String email);
 	public boolean existeixEmail (String email);
+	public void insertaJugador(Jugador jugador); 
 
 }

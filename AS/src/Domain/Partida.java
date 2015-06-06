@@ -74,17 +74,10 @@ public class Partida implements Serializable{
 			{
 				Casella c = new Casella(i,j);
 				casella[i-1][j-1]=c;
-				
-				
 			}
-			
-			
 		}
-		
 		addRandomNum();
 		addRandomNum();
-		
-		
 	}
 	
 	public ArrayList<CasellaDTO> casellesAmbNumero()
@@ -116,39 +109,24 @@ public class Partida implements Serializable{
 		ArrayList<Casella> casellabuida = new ArrayList<Casella>();
 		Casella c,c1;
 		int n,randomN;
-		
 		for(int y=0;y<4;y++)
 		{
 			for(int x=0;x<4;x++)
 			{
 				c=casella[y][x];
-				n=c.getNumero();
-				
+				n=c.getNum();
 				if(n==0)
-				{
 					casellabuida.add(c);
-				}
-		
 			}
-		
 		}
-		
 		if(casellabuida.size()>0)
 		{
-		
-			n= (int) (Math.random()*casellabuida.size());
+			n= (int) (Math.random() * casellabuida.size());
 			c1=casellabuida.get(n);
-			
-			if((Math.random()*10)/10.f>0.1)randomN=2;
+			if(Math.random() > 0.1) randomN=2;
 			else randomN=4;
-			
-			c1.setNumero(randomN);
-		
-		
+			c1.setNum(randomN);
 		}
-
-		
-		
 	}
 	
 	public boolean checkAcabada()
@@ -159,7 +137,7 @@ public class Partida implements Serializable{
 			for(int x=0;x<4 && acabat;x++)
 			{
 				Casella c = casella[y][x];
-				Integer num = c.getNumero();
+				Integer num = c.getNum();
 				
 				if(num== null || num==0)
 				{
@@ -378,8 +356,8 @@ public class Partida implements Serializable{
 	
 	{
 
-		int n = c.getNumero();
-		int n1 = c1.getNumero();
+		int n = c.getNum();
+		int n1 = c1.getNum();
 		boolean espaiblanc=false;
 		b=false;
 		m=false;
@@ -388,16 +366,16 @@ public class Partida implements Serializable{
 		{
 			if(n==0)
 			{
-				c.setNumero(n1);
-				c1.setNumero(0);
+				c.setNum(n1);
+				c1.setNum(0);
 				espaiblanc=true;
 				m=true;
 			
 			}
 			else if(n==n1)
 			{
-				c.setNumero(n*2);
-				c1.setNumero(0);
+				c.setNum(n*2);
+				c1.setNum(0);
 				puntuacio+=n*2;
 				m=true;
 				

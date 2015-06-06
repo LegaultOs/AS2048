@@ -2,29 +2,30 @@ package Domain;
 
 public class EstrategiaOrdenacioFactory {
 	
-	private static EstrategiaOrdenacioFactory factory;
+	private static EstrategiaOrdenacioFactory instance;
+	private EstrategiaOrdenacioPunts eop;
+	private EstrategiaOrdenacioMitjaPunts eomp;
 	
 	
 	private EstrategiaOrdenacioFactory()
-	{}
+	{
+		eop = null;
+		eomp = null;
+	}
 	
 	public static EstrategiaOrdenacioFactory getInstance()
 	{
-		if(factory==null)
+		if(instance==null)
 		{
-			factory= new EstrategiaOrdenacioFactory();
-			
+			instance= new EstrategiaOrdenacioFactory();
 		}
-		
-		return factory;
-		
-		
+		return instance;
 	}
 	
 	public EstrategiaOrdenacio creaEstrategiaOrdenacioPunts()
 	{
-		
-		return new EstrategiaOrdenacioPunts();
+		if (eop == null) eop = new EstrategiaOrdenacioPunts();
+		return eop;
 		
 	}
 

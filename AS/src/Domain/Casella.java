@@ -29,14 +29,14 @@ public class Casella implements Serializable{
 	}
 
 	
-	public Integer getNumero() {
-		if(numero!=null)return numero;
+	public Integer getNum() {
+		if (numero != null) return numero;
 		else return 0;
 	}
 
-	public void setNumero(int numero) {
-		if(numero!=0)this.numero = numero;
-		else this.numero=null;
+	public void setNum(int numero) {
+		if (numero != 0) this.numero = numero;
+		else this.numero = null;
 	}
 
 	public Casella (int i, int j)
@@ -55,7 +55,7 @@ public class Casella implements Serializable{
 	
 	public boolean equals(Casella obj) {
 		
-		return this.numero == obj.getNumero();
+		return this.numero == obj.getNum();
 	
 		
 	}

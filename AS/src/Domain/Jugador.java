@@ -5,9 +5,6 @@ public class Jugador extends UsuariRegistrat {
 	private String email;
 	private int millorPuntuacio;
 	
-	
-	
-	
 	public String getEmail() {
 		return email;
 	}
@@ -23,13 +20,14 @@ public class Jugador extends UsuariRegistrat {
 	
 	public int getPuntuacioMitja()
 	{
-		return 0;}
-	
-	public void acualitzaAssoc(int puntuacio,Partida p)
-	{
-		
-		
+		return 0;
 	}
+	
+	
+	public void acualitzaAssoc(int puntuacio, Partida p) {
+		if (puntuacio > this.millorPuntuacio) this.millorPuntuacio = puntuacio;
+	}
+		
 	@Override
 	public boolean etsJugador() {
 		

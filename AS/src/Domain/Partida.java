@@ -129,6 +129,35 @@ public class Partida implements Serializable{
 		}
 	}
 	
+	private boolean mergeableAmbVecino(int y, int x, boolean acabat, Casella c) {
+		if(x>0 && acabat)
+		{
+			Casella esq = casella[y][x-1];
+			boolean b = c.equals(esq); //mergeable?
+			if(b==true)acabat=false;
+		}
+		if(x<3 && acabat)
+		{
+			Casella dre = casella[y][x+1];
+			boolean b =c.equals(dre);
+			if(b==true)acabat=false;
+		}
+		if(y>0 && acabat)
+		{
+			Casella up = casella[y-1][x];
+			boolean b =c.equals(up);
+			if(b==true)acabat=false;
+		}
+		
+		if(y<3 && acabat)
+		{
+			Casella bot = casella[y+1][x];
+			boolean b =c.equals(bot);
+			if(b==true)acabat=false;
+		}
+		return acabat;
+	}
+	
 	public boolean checkAcabada()
 	{
 		boolean acabat =true;
@@ -137,50 +166,15 @@ public class Partida implements Serializable{
 			for(int x=0;x<4 && acabat;x++)
 			{
 				Casella c = casella[y][x];
-				Integer num = c.getNum();
-				
-				if(num== null || num==0)
+				int num = c.getNum();
+				if(num == 0)  // hay casilla vacia
 				{
 					acabat=false;
-					
 				}
-				
-				if(x>0 && acabat)
-				{
-					
-					Casella esq = casella[y][x-1];
-					boolean b =c.equals(esq);
-					if(b==true)acabat=false;
-					
+				else {  // se puede hacer merge con sus vecinos?
+					boolean baux = mergeableAmbVecino(y, x, acabat, c);
+					if (acabat == true && baux == false) acabat = false;
 				}
-				
-				if(x<3 && acabat)
-				{
-					
-					Casella dre = casella[y][x+1];
-					boolean b =c.equals(dre);
-					if(b==true)acabat=false;
-					
-				}
-				
-				if(y>0 && acabat)
-				{
-					
-					Casella up = casella[y-1][x];
-					boolean b =c.equals(up);
-					if(b==true)acabat=false;
-					
-				}
-				
-				if(y<3 && acabat)
-				{
-					
-					Casella bot = casella[y+1][x];
-					boolean b =c.equals(bot);
-					if(b==true)acabat=false;
-					
-				}
-				
 			}
 		}	
 		return acabat;
@@ -190,23 +184,13 @@ public class Partida implements Serializable{
 	{
 		boolean merge = ferMov(tipusMov);
 		
-		if(estaGuanyada==true)estaAcabada=true;
-		else if(merge==true)addRandomNum();
-		else if(merge==false)
+		if (estaGuanyada == true) estaAcabada=true;
+		else if (merge == true) addRandomNum();
+		else if (merge == false)
 		{
-			
 			boolean acabat = checkAcabada();
-			
-			if(acabat==true)
-			{
-				estaAcabada=true;
-				
-			}
-			
-			
+			if(acabat == true)	estaAcabada = true;
 		}
-		
-		
 		MovimentDTO mov = new MovimentDTO();
 		mov.setCasellesAmbNumero(casellesAmbNumero());
 		mov.setAcabada(estaAcabada);
@@ -216,19 +200,15 @@ public class Partida implements Serializable{
 	}
 	
 	private boolean ferMov(String tipusMov)
-	
 	{
-		
 		boolean merge = false;
-		boolean para,m=false,espaiblanc;
+		boolean para, m, espaiblanc;
 		int y,y1,x,x1;
 		Casella c,c1;
-		
 		if(tipusMov.equals("esquerra"))
 		{
 			for(y=0;y<4;y++)
 			{
-
 				for(x=0;x<4;x++)
 				{
 					c = casella[y][x];
@@ -237,7 +217,6 @@ public class Partida implements Serializable{
 					while(x1<4 && para==false)
 					{
 						c1 = casella[y][x1];
-						
 						espaiblanc = moureCasella(c,c1,para,m);
 						if(espaiblanc==true)
 						{
@@ -245,15 +224,12 @@ public class Partida implements Serializable{
 						}
 						if(merge==false && m==true)
 						{
-						
 							merge=true;
 						}
 						x1++;
 					}
-					
 				}
 			}
-		
 		}
 		else if(tipusMov.equals("dreta"))
 		{
@@ -267,7 +243,6 @@ public class Partida implements Serializable{
 					while(x1>=0 && para==false)
 					{
 						c1 = casella[y][x1];
-						
 						espaiblanc = moureCasella(c,c1,para,m);
 						if(espaiblanc==true)
 						{
@@ -275,15 +250,12 @@ public class Partida implements Serializable{
 						}
 						if(merge==false && m==true)
 						{
-						
 							merge=true;
 						}
 						x1--;
 					}
-				
 				}
 			}
-		
 		}
 		else if(tipusMov.equals("amunt"))
 		{
@@ -291,14 +263,12 @@ public class Partida implements Serializable{
 			{
 				for(y=0;y<4;y++)
 				{
-				
 					c = casella[y][x];
 					y1=y+1;
 					para=false;
 					while(y1<4 && para==false)
 					{
 						c1 = casella[y1][x];
-						
 						espaiblanc = moureCasella(c,c1,para,m);
 						if(espaiblanc==true)
 						{
@@ -306,15 +276,12 @@ public class Partida implements Serializable{
 						}
 						if(merge==false && m==true)
 						{
-						
 							merge=true;
 						}
 						y1++;
 					}
-				
 				}
 			}
-		
 		}
 		else if(tipusMov.equals("avall"))
 		{
@@ -322,14 +289,12 @@ public class Partida implements Serializable{
 			{
 				for(y=3;y>=0;y--)
 				{
-				
 					c = casella[y][x];
 					y1=y-1;
 					para=false;
 					while(y1>=0 && para==false)
 					{
 						c1 = casella[y1][x];
-						
 						espaiblanc = moureCasella(c,c1,para,m);
 						if(espaiblanc==true)
 						{
@@ -337,31 +302,23 @@ public class Partida implements Serializable{
 						}
 						if(merge==false && m==true)
 						{
-						
 							merge=true;
 						}
 						y1--;
 					}
-				
 				}
 			}
-		
 		}
-		
 		return merge;
-		
 	}
 	
 	private boolean moureCasella(Casella c, Casella c1, boolean b, boolean m)
-	
 	{
-
 		int n = c.getNum();
 		int n1 = c1.getNum();
 		boolean espaiblanc=false;
 		b=false;
 		m=false;
-
 		if(n1>0)
 		{
 			if(n==0)
@@ -378,23 +335,14 @@ public class Partida implements Serializable{
 				c1.setNum(0);
 				puntuacio+=n*2;
 				m=true;
-				
 				if(n==1024)
 				{
-					if(estaGuanyada==false)estaGuanyada=true;
-				
+					if(estaGuanyada==false) estaGuanyada=true;
 				}
-			
 			}
-
 			b=true;
-
-
-
 		}
-
-
-	return espaiblanc;
+		return espaiblanc;
 	}
 
 }

@@ -50,11 +50,13 @@ public class CntrlJugarPartida {
 	
 	public MovimentDTO ferMoviment(String tipusMov)
 	{
-		MovimentDTO mov = p.ferMoviment(tipusMov);
+		MovimentDTO res = p.ferMoviment(tipusMov);
 		
-		mov.setMillorPunt(jugador.getMillorPuntuacio());
+		res.setMillorPunt(jugador.getMillorPuntuacio());
 		
-		return mov;
+		if (res.isGuanyada()) jugador.acualitzaAssoc(res.getPuntuacio(), p);
+		
+		return res;
 	}
 	
 	

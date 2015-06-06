@@ -51,13 +51,9 @@ public class Casella implements Serializable{
 		return new CasellaDTO(numeroFila, numeroColumna, numero);
 		
 	}
-
 	
 	public boolean equals(Casella obj) {
-		
-		return this.numero == obj.getNum();
-	
-		
+		return this.numero.equals(obj.getNum());
 	}
 	
 	

@@ -1,4 +1,17 @@
 package Domain;
+import java.awt.List;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import java.util.ArrayList;
 import java.lang.Math;
@@ -6,14 +19,18 @@ import java.lang.Math;
 import Domain.DTO.CasellaDTO;
 import Domain.DTO.MovimentDTO;
 
-public class Partida {
+@Entity
+@Table(name="Partida")
+public class Partida implements Serializable{
+	
 	private int idPartida;
 	private boolean estaAcabada;
 	private boolean estaGuanyada;
 	private int puntuacio;
 	private Casella[][] casella ;//relacion con la tabla de casella
 	
-	
+	@Id
+	@Column(nullable = false)
 	public int getIdPartida() {
 		return idPartida;
 	}
@@ -41,15 +58,12 @@ public class Partida {
 	
 	//entiendo yo que el crearPartida es el constructor
 	
-	public Partida(int id)
-	{
+	public Partida(int id){
 		idPartida = id;
 		puntuacio =0;
 		estaAcabada=false;
 		estaGuanyada=false;
-		casella  = new Casella[4][4];
-		
-		
+		casella  = new Casella[4][4];	
 	}
 	
 	public void inicializar()

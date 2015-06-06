@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface ICtrlPartida {
 	
-	public Partida get(int id);
+	public Partida getPartida(int idPartida);
 	public boolean existeix(int id);
 	public ArrayList<Partida> tots();
 

@@ -39,9 +39,8 @@ public class Casella implements Serializable{
 		else this.numero=null;
 	}
 
-	public Casella (int i , int j)
+	public Casella (int i, int j)
 	{
-		
 		numeroFila=i;
 		numeroColumna=j;
 	}

@@ -4,15 +4,56 @@ import java.util.ArrayList;
 
 import Domain.Casella;
 import Domain.ICtrlCasella;
+import Domain.Partida;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class CtrlCasellaBD implements ICtrlCasella {
 
 	@Override
-	public Casella get(int id, int fila, int col) {
-		// TODO Auto-generated method stub
-		return null;
+	public Casella getCasella(int id, int fila, int col) {
+		
+		AnnotationConfiguration config = new AnnotationConfiguration(); 
+		config.addAnnotatedClass(Casella.class); 
+		config.configure("hibernate.cfg.xml"); 
+		
+		new SchemaExport(config).create(true, true);
+		
+		SessionFactory factory = config.buildSessionFactory(); 
+		Session session = factory.getCurrentSession(); 
+		
+		session.beginTransaction(); 
+		
+		Casella casella = new Casella(fila,col); 
+		
+		casella = (Casella)session.get(Casella.class, id); 
+		
+		session.getTransaction().commit(); 
+		
+		return casella;
 	}
 
+	public void insertaCasella(Casella casella){
+		
+		AnnotationConfiguration config = new AnnotationConfiguration(); 
+		config.addAnnotatedClass(Casella.class); 
+		config.configure("hibernate.cfg.xml"); 
+		
+		new SchemaExport(config).create(true, true);
+		
+		SessionFactory factory = config.buildSessionFactory(); 
+		Session session = factory.getCurrentSession(); 
+		
+		session.beginTransaction(); 
+		
+		session.saveOrUpdate(casella);
+		session.getTransaction().commit(); 
+		session.close(); 		
+	}
+	
 	@Override
 	public boolean existeix(int id, int fila, int col) {
 		// TODO Auto-generated method stub

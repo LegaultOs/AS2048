@@ -7,8 +7,6 @@ import Domain.DTO.JugadorDTO;
 public class CtrlConsultarRanquing {
 
 	public ArrayList<JugadorDTO> consultarRanking() throws Exception {
-		
-		
 		int cont =0;
 		Joc2048 j =Joc2048.getInstance();
 		CtrlDataFactory cdf = CtrlDataFactory.getInstance();	

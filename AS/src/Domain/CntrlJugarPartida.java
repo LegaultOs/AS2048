@@ -11,6 +11,16 @@ public class CntrlJugarPartida {
 
 	private Jugador jugador;
 	private Partida p;
+	private CtrlLogin ctrlLogin;
+	private CtrlConsultarRanquing ctrlCR;
+	
+	public CntrlJugarPartida () {
+		ctrlCR = new CtrlConsultarRanquing();
+		ctrlLogin = new CtrlLogin();
+		p = null;
+		jugador = null;
+	}
+	
 	
 	public InfoPartidaDTO crearPartida()
 	{	

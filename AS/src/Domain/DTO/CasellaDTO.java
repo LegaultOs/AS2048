@@ -4,6 +4,7 @@ public class CasellaDTO {
 	
 	int i,j;
 	Integer numero;
+	
 	public CasellaDTO (int i,int j, int num)
 	{
 		this.i=i;

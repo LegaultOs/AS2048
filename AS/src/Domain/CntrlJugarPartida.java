@@ -54,7 +54,7 @@ public class CntrlJugarPartida {
 		
 		res.setMillorPunt(jugador.getMillorPuntuacio());
 		
-		if (res.isGuanyada()) jugador.acualitzaAssoc(res.getPuntuacio(), p);
+		if (res.isAcabada()) jugador.acualitzaAssoc(res.getPuntuacio(), p);
 		
 		return res;
 	}

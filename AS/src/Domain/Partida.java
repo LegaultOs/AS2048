@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 import Domain.DTO.CasellaDTO;
+import Domain.DTO.MoureCasellaDTO;
 import Domain.DTO.MovimentDTO;
 
 @Entity
@@ -202,7 +203,7 @@ public class Partida implements Serializable{
 	private boolean ferMov(String tipusMov)
 	{
 		boolean merge = false;
-		boolean para, m, espaiblanc;
+		boolean breake, m, espaiblanc;
 		int y,y1,x,x1;
 		Casella c,c1;
 		if(tipusMov.equals("esquerra"))
@@ -213,11 +214,14 @@ public class Partida implements Serializable{
 				{
 					c = casella[y][x];
 					x1=x+1;
-					para=false;
-					while(x1<4 && para==false)
+					breake=false;
+					while(x1<4 && breake==false)
 					{
 						c1 = casella[y][x1];
-						espaiblanc = moureCasella(c,c1,para,m);
+						MoureCasellaDTO mc = moureCasella(c,c1);
+						breake = mc.isB();
+						m = mc.isM();
+						espaiblanc = mc.isEspaiblanc();
 						if(espaiblanc==true)
 						{
 							x--;
@@ -239,11 +243,14 @@ public class Partida implements Serializable{
 				{
 					c = casella[y][x];
 					x1=x-1;
-					para=false;
-					while(x1>=0 && para==false)
+					breake=false;
+					while(x1>=0 && breake==false)
 					{
 						c1 = casella[y][x1];
-						espaiblanc = moureCasella(c,c1,para,m);
+						MoureCasellaDTO mc = moureCasella(c,c1);
+						breake = mc.isB();
+						m = mc.isM();
+						espaiblanc = mc.isEspaiblanc();
 						if(espaiblanc==true)
 						{
 							x++;
@@ -265,11 +272,14 @@ public class Partida implements Serializable{
 				{
 					c = casella[y][x];
 					y1=y+1;
-					para=false;
-					while(y1<4 && para==false)
+					breake=false;
+					while(y1<4 && breake==false)
 					{
 						c1 = casella[y1][x];
-						espaiblanc = moureCasella(c,c1,para,m);
+						MoureCasellaDTO mc = moureCasella(c,c1);
+						breake = mc.isB();
+						m = mc.isM();
+						espaiblanc = mc.isEspaiblanc();
 						if(espaiblanc==true)
 						{
 							y--;
@@ -291,11 +301,14 @@ public class Partida implements Serializable{
 				{
 					c = casella[y][x];
 					y1=y-1;
-					para=false;
-					while(y1>=0 && para==false)
+					breake=false;
+					while(y1>=0 && breake==false)
 					{
 						c1 = casella[y1][x];
-						espaiblanc = moureCasella(c,c1,para,m);
+						MoureCasellaDTO mc = moureCasella(c,c1);
+						breake = mc.isB();
+						m = mc.isM();
+						espaiblanc = mc.isEspaiblanc();
 						if(espaiblanc==true)
 						{
 							y++;
@@ -312,13 +325,13 @@ public class Partida implements Serializable{
 		return merge;
 	}
 	
-	private boolean moureCasella(Casella c, Casella c1, boolean b, boolean m)
+	private MoureCasellaDTO moureCasella(Casella c, Casella c1)
 	{
 		int n = c.getNum();
 		int n1 = c1.getNum();
 		boolean espaiblanc=false;
-		b=false;
-		m=false;
+		boolean b=false;
+		boolean m=false;
 		if(n1>0)
 		{
 			if(n==0)
@@ -342,7 +355,7 @@ public class Partida implements Serializable{
 			}
 			b=true;
 		}
-		return espaiblanc;
+		return new MoureCasellaDTO(b, m, espaiblanc);
 	}
 
 }

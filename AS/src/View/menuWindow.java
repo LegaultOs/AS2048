@@ -16,21 +16,7 @@ public class menuWindow extends JFrame {
 	private JPanel contentPane;
 	private JugarPartidaController cv;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					menuWindow frame = new menuWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -59,7 +45,7 @@ public class menuWindow extends JFrame {
 		JButton button_1 = new JButton("Cancel");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				cv.PrCancel();
 			}
 		});
 		button_1.setBounds(341, 239, 91, 23);

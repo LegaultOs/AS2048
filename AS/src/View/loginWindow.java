@@ -56,27 +56,12 @@ public class loginWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//caso de uso de Login
-				try {
+				
 					cv.PrLogin(textField.getText(),textField_1.getText());
 					
 					
 					dispose();
-				} catch (Exception e1) {
-					if(e1.getMessage().equals("jugadorNoExisteix"))
-					{
-						JOptionPane.showMessageDialog(new JFrame(),
-								"El jugador con ese username no existe",
-								" ", JOptionPane.ERROR_MESSAGE);
-						
-					}
-					else if (e1.getMessage().equals("passIncorrecte"))	
-					{
-						JOptionPane.showMessageDialog(new JFrame(),
-								"La contraseña no coincide con la del usuario",
-								" ", JOptionPane.ERROR_MESSAGE);
-						
-					}
-				}
+				
 				
 			}
 		});
@@ -86,7 +71,7 @@ public class loginWindow extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				cv.PrCancel();
 			}
 		});
 		btnNewButton_1.setBounds(230, 255, 91, 23);

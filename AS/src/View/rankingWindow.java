@@ -19,21 +19,7 @@ public class rankingWindow extends JFrame {
 	private JTable table;
 	private JugarPartidaController cv;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					rankingWindow frame = new rankingWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -59,7 +45,7 @@ public class rankingWindow extends JFrame {
 		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
+				cv.PrOkAConsultar();
 			}
 		});
 		btnNewButton.setBounds(341, 279, 91, 23);

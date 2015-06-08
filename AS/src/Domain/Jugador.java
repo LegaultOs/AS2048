@@ -26,6 +26,7 @@ public class Jugador extends UsuariRegistrat {
 	
 	public void acualitzaAssoc(int puntuacio, Partida p) {
 		if (puntuacio > this.millorPuntuacio) this.millorPuntuacio = puntuacio;
+		//falta asociarlo a la partida
 	}
 		
 	@Override

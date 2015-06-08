@@ -20,13 +20,13 @@ public class MovimentDTO {
 	public void setAcabada(boolean acabada) {
 		this.acabada = acabada;
 	}
-	public int getMillorPunt() {
+	public Integer getMillorPunt() {
 		return millorPunt;
 	}
 	public void setMillorPunt(int millorPunt) {
 		this.millorPunt = millorPunt;
 	}
-	public int getPuntuacio() {
+	public Integer getPuntuacio() {
 		return puntuacio;
 	}
 	public void setPuntuacio(int puntuacio) {

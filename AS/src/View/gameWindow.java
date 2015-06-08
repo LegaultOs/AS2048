@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,9 +13,21 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import Domain.CntrlJugarPartida;
+import Domain.Partida;
+import Domain.DTO.CasellaDTO;
+import Domain.DTO.MovimentDTO;
+
 public class gameWindow extends JFrame {
 
 	private JPanel contentPane;
+	private final int ANCHO=4;
+	private final int ALTO=4;
+	private JLabel[][] casillas = new JLabel[ANCHO][ALTO];
+	private JLabel puntosActuales;
+	private JLabel maxPunt;
+	private CtrlVista cv;
+	
 
 	/**
 	 * Launch the application.
@@ -36,6 +49,7 @@ public class gameWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public gameWindow() {
+		cv=CtrlVista.getInstance();
 		setTitle("Joc 2048 - Jugar Partida");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 356, 427);
@@ -48,17 +62,17 @@ public class gameWindow extends JFrame {
 		lblNewLabel.setBounds(10, 30, 65, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("score");
-		lblNewLabel_1.setBounds(83, 30, 46, 14);
-		contentPane.add(lblNewLabel_1);
+		maxPunt = new JLabel("score");
+		maxPunt.setBounds(83, 30, 46, 14);
+		contentPane.add(maxPunt);
 		
 		JLabel lblNewLabel_2 = new JLabel("Current Score:");
 		lblNewLabel_2.setBounds(184, 30, 83, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("cScore");
-		lblNewLabel_3.setBounds(277, 30, 56, 14);
-		contentPane.add(lblNewLabel_3);
+		puntosActuales = new JLabel("cScore");
+		puntosActuales.setBounds(277, 30, 56, 14);
+		contentPane.add(puntosActuales);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 204, 255));
@@ -73,6 +87,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_4.setBackground(new Color(255, 153, 102));
 		lblNewLabel_4.setBounds(10, 11, 68, 62);
 		panel.add(lblNewLabel_4);
+		casillas[0][0]=lblNewLabel_4;
 		
 		JLabel lblNewLabel_5 = new JLabel("New label");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
@@ -81,6 +96,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
 		lblNewLabel_5.setBounds(10, 84, 68, 62);
 		panel.add(lblNewLabel_5);
+		casillas[0][1]=lblNewLabel_5;
 		
 		JLabel lblNewLabel_6 = new JLabel("New label");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -89,6 +105,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_6.setBackground(new Color(255, 153, 102));
 		lblNewLabel_6.setBounds(10, 157, 68, 61);
 		panel.add(lblNewLabel_6);
+		casillas[0][2]=lblNewLabel_6;
 		
 		JLabel lblNewLabel_7 = new JLabel("New label");
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
@@ -97,6 +114,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_7.setBackground(new Color(255, 153, 102));
 		lblNewLabel_7.setBounds(10, 229, 68, 64);
 		panel.add(lblNewLabel_7);
+		casillas[0][3]=lblNewLabel_7;
 		
 		JLabel lblNewLabel_8 = new JLabel("New label");
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,6 +123,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_8.setBackground(new Color(255, 153, 102));
 		lblNewLabel_8.setBounds(88, 11, 68, 62);
 		panel.add(lblNewLabel_8);
+		casillas[1][0]=lblNewLabel_8;
 		
 		JLabel lblNewLabel_9 = new JLabel("New label");
 		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
@@ -113,6 +132,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_9.setBackground(new Color(255, 153, 102));
 		lblNewLabel_9.setBounds(244, 11, 68, 62);
 		panel.add(lblNewLabel_9);
+		casillas[1][1]=lblNewLabel_9;
 		
 		JLabel lblNewLabel_10 = new JLabel("New label");
 		lblNewLabel_10.setHorizontalAlignment(SwingConstants.CENTER);
@@ -121,6 +141,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_10.setBackground(new Color(255, 153, 102));
 		lblNewLabel_10.setBounds(166, 11, 68, 62);
 		panel.add(lblNewLabel_10);
+		casillas[1][2]=lblNewLabel_10;
 		
 		JLabel lblNewLabel_11 = new JLabel("New label");
 		lblNewLabel_11.setHorizontalAlignment(SwingConstants.CENTER);
@@ -129,6 +150,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_11.setBackground(new Color(255, 153, 102));
 		lblNewLabel_11.setBounds(88, 84, 68, 62);
 		panel.add(lblNewLabel_11);
+		casillas[1][3]=lblNewLabel_11;
 		
 		JLabel lblNewLabel_12 = new JLabel("New label");
 		lblNewLabel_12.setHorizontalAlignment(SwingConstants.CENTER);
@@ -137,6 +159,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_12.setBackground(new Color(255, 153, 102));
 		lblNewLabel_12.setBounds(88, 157, 68, 61);
 		panel.add(lblNewLabel_12);
+		casillas[2][0]=lblNewLabel_12;
 		
 		JLabel lblNewLabel_13 = new JLabel("New label");
 		lblNewLabel_13.setHorizontalAlignment(SwingConstants.CENTER);
@@ -145,6 +168,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_13.setBackground(new Color(255, 153, 102));
 		lblNewLabel_13.setBounds(88, 229, 68, 64);
 		panel.add(lblNewLabel_13);
+		casillas[2][1]=lblNewLabel_13;
 		
 		JLabel lblNewLabel_14 = new JLabel("New label");
 		lblNewLabel_14.setHorizontalAlignment(SwingConstants.CENTER);
@@ -153,6 +177,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_14.setBackground(new Color(255, 153, 102));
 		lblNewLabel_14.setBounds(166, 84, 68, 62);
 		panel.add(lblNewLabel_14);
+		casillas[2][2]=lblNewLabel_14;
 		
 		JLabel lblNewLabel_15 = new JLabel("New label");
 		lblNewLabel_15.setHorizontalAlignment(SwingConstants.CENTER);
@@ -161,6 +186,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_15.setBackground(new Color(255, 153, 102));
 		lblNewLabel_15.setBounds(166, 157, 68, 61);
 		panel.add(lblNewLabel_15);
+		casillas[2][3]=lblNewLabel_15;
 		
 		JLabel lblNewLabel_16 = new JLabel("New label");
 		lblNewLabel_16.setHorizontalAlignment(SwingConstants.CENTER);
@@ -169,6 +195,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_16.setBackground(new Color(255, 153, 102));
 		lblNewLabel_16.setBounds(166, 229, 68, 64);
 		panel.add(lblNewLabel_16);
+		casillas[3][0]=lblNewLabel_16;
 		
 		JLabel lblNewLabel_17 = new JLabel("New label");
 		lblNewLabel_17.setHorizontalAlignment(SwingConstants.CENTER);
@@ -177,6 +204,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_17.setBackground(new Color(255, 153, 102));
 		lblNewLabel_17.setBounds(244, 84, 68, 62);
 		panel.add(lblNewLabel_17);
+		casillas[3][1]=lblNewLabel_17;
 		
 		JLabel lblNewLabel_18 = new JLabel("New label");
 		lblNewLabel_18.setHorizontalAlignment(SwingConstants.CENTER);
@@ -185,6 +213,7 @@ public class gameWindow extends JFrame {
 		lblNewLabel_18.setBackground(new Color(255, 153, 102));
 		lblNewLabel_18.setBounds(244, 157, 68, 61);
 		panel.add(lblNewLabel_18);
+		casillas[3][2]=lblNewLabel_18;
 		
 		JLabel lblNewLabel_19 = new JLabel("New label");
 		lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
@@ -193,26 +222,30 @@ public class gameWindow extends JFrame {
 		lblNewLabel_19.setBackground(new Color(255, 153, 102));
 		lblNewLabel_19.setBounds(244, 229, 68, 64);
 		panel.add(lblNewLabel_19);
-		
+		casillas[3][3]=lblNewLabel_19;
+		resetCasellas();
 		addKeyListener(new KeyListener() {
 		    public void keyPressed(KeyEvent e) {int code = e.getKeyCode();
 		  //caso de uso Mover casilla
+		    String codigo= new String();
 		    switch(code)
 		    {
 		    
 		    
-		    case KeyEvent.VK_UP:System.out.println("Up");
+		    case KeyEvent.VK_UP:codigo="amunt";
 		    					break;
-		    case KeyEvent.VK_DOWN:System.out.println("Down");
+		    case KeyEvent.VK_DOWN:codigo="avall";
 								break;
-		    case KeyEvent.VK_LEFT:System.out.println("Left");
+		    case KeyEvent.VK_LEFT:codigo="esquerra";
 								break;
-		    case KeyEvent.VK_RIGHT:System.out.println("Right");
+		    case KeyEvent.VK_RIGHT:codigo="dreta";
 								break;
-		    default:	System.out.println("Tecla incorrecta");
+		    default:	codigo="-1";
 		    					break;
 		    
 		    }
+		    
+		    if(!codigo.equals("-1"))actualitzarVista(cv.ferMoviment(codigo));
 			}
 
 		    public void keyReleased(KeyEvent e) { }
@@ -222,4 +255,50 @@ public class gameWindow extends JFrame {
 	}
 
 	
+	private void actualitzarVista(MovimentDTO info)
+	{
+		
+		setCasellas(info.getCasellesAmbNumero());
+		puntosActuales.setText(info.getPuntuacio().toString());
+		maxPunt.setText(info.getMillorPunt().toString());
+		this.repaint();
+		this.revalidate();
+		
+		
+	}
+	
+	
+	private void resetCasellas()
+	{
+		
+		for(int i =0;i<ANCHO;i++)
+		{
+			for(int j =0;j<ALTO;j++)
+			{
+				casillas[i][j].setText("");
+			
+			}
+		}
+		
+		
+	}
+	
+	private void setCasellas(ArrayList<CasellaDTO> info)
+	{
+		
+		resetCasellas();
+		
+		for(CasellaDTO c : info)
+		{
+			
+			casillas[c.getI()][c.getJ()].setText(c.getNumero().toString());
+			
+		}
+		
+		
+		
+		
+		
+		
+	}
 }

@@ -7,12 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class startWindow extends JFrame {
 
 	private JPanel contentPane;
+	private CtrlVista cv;
 
 	/**
 	 * Launch the application.
@@ -34,6 +36,7 @@ public class startWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public startWindow() {
+		cv=CtrlVista.getInstance();
 		setTitle("Joc 2048");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 328, 240);
@@ -46,7 +49,7 @@ public class startWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Cargaremos la ventana de login
-				JFrame jf = new loginWindow();
+				JFrame jf = cv.getLoginWindow();
 				jf.setVisible(true);
 				
 				dispose();

@@ -52,7 +52,9 @@ public class CntrlJugarPartida {
 	
 	public void  ferAutenticacio(String userN, String passwd) throws Exception
 	{
-		//aqui se crear? el jugador y tal y cual
+		
+		jugador= ctrlLogin.autentica(userN, passwd);
+		
 		
 		
 	}

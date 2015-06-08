@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -16,6 +17,7 @@ public class rankingWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private CtrlVista cv;
 
 	/**
 	 * Launch the application.
@@ -37,6 +39,7 @@ public class rankingWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public rankingWindow() {
+		cv=CtrlVista.getInstance();
 		setTitle("Joc 2048 - ranking");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 340);

@@ -10,7 +10,7 @@ public class Joc2048 {
 	private int idPartida;	
 	private EstrategiaOrdenacio estrategia;
 	
-	public Joc2048()
+	private Joc2048() //si el constructor está en public, se pueden hacer las instancias que nos de la gana
 	{	}
 	
 	public static Joc2048 getInstance()

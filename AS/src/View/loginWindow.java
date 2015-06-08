@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -24,6 +25,7 @@ public class loginWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private CtrlVista cv;
 
 	/**
 	 * Launch the application.
@@ -45,6 +47,7 @@ public class loginWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public loginWindow() {
+		cv=CtrlVista.getInstance();
 		setTitle("Joc 2048 - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 379, 333);
@@ -67,16 +70,29 @@ public class loginWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//caso de uso de Login
+				try {
+					cv.ferAutenticacio(textField.getText(),textField_1.getText());
+					JFrame jf = cv.getMenuWindow();
+					jf.setVisible(true);
+					
+					dispose();
+				} catch (Exception e1) {
+					if(e1.getMessage().equals("jugadorNoExisteix"))
+					{
+						JOptionPane.showMessageDialog(new JFrame(),
+								"El jugador con ese username no existe",
+								" ", JOptionPane.ERROR_MESSAGE);
+						
+					}
+					else if (e1.getMessage().equals("passIncorrecte"))	
+					{
+						JOptionPane.showMessageDialog(new JFrame(),
+								"La contraseña no coincide con la del usuario",
+								" ", JOptionPane.ERROR_MESSAGE);
+						
+					}
+				}
 				
-				//ferAutenticacio
-				//haremos un try y catch de las 2 excepciones
-				// y las controlaremos en la vista.
-				
-				//si el login es correcto,cambiaremos de ventana
-				JFrame jf = new menuWindow();
-				jf.setVisible(true);
-				
-				dispose();
 			}
 		});
 		btnNewButton.setBounds(51, 255, 91, 23);

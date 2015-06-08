@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 public class startWindow extends JFrame {
 
 	private JPanel contentPane;
-	private CtrlVista cv;
+	private JugarPartidaController cv;
 
 	/**
 	 * Launch the application.
@@ -36,7 +36,7 @@ public class startWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public startWindow() {
-		cv=CtrlVista.getInstance();
+		cv=JugarPartidaController.getInstance();
 		setTitle("Joc 2048");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 328, 240);
@@ -49,8 +49,8 @@ public class startWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Cargaremos la ventana de login
-				JFrame jf = cv.getLoginWindow();
-				jf.setVisible(true);
+				cv.PrJugarPartida();
+				
 				
 				dispose();
 			}

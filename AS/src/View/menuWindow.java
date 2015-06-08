@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 public class menuWindow extends JFrame {
 
 	private JPanel contentPane;
-	private CtrlVista cv;
+	private JugarPartidaController cv;
 
 	/**
 	 * Launch the application.
@@ -36,7 +36,7 @@ public class menuWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public menuWindow() {
-		cv=CtrlVista.getInstance();
+		cv=JugarPartidaController.getInstance();
 		setTitle("Joc 2048 - Jugar partida");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -48,8 +48,7 @@ public class menuWindow extends JFrame {
 		JButton button = new JButton("Jugar Partida");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame jf = cv.getGameWindow();
-				jf.setVisible(true);
+				cv.PrJugar();
 				
 				dispose();
 			}

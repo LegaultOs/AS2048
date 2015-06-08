@@ -17,7 +17,7 @@ public class rankingWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private CtrlVista cv;
+	private JugarPartidaController cv;
 
 	/**
 	 * Launch the application.
@@ -39,7 +39,7 @@ public class rankingWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public rankingWindow() {
-		cv=CtrlVista.getInstance();
+		cv=JugarPartidaController.getInstance();
 		setTitle("Joc 2048 - ranking");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 340);

@@ -27,29 +27,14 @@ public class gameWindow extends JFrame {
 	private JLabel[][] casillas = new JLabel[ANCHO][ALTO];
 	private JLabel puntosActuales;
 	private JLabel maxPunt;
-	private CtrlVista cv;
+	private JugarPartidaController cv;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					gameWindow frame = new gameWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	public gameWindow() {
-		cv = CtrlVista.getInstance();
+	public gameWindow( Integer punt,Integer millorPunt,ArrayList<CasellaDTO> casellesAmbNumero ) {
+		cv = JugarPartidaController.getInstance();
 
 		setTitle("Joc 2048 - Jugar Partida");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -224,7 +209,13 @@ public class gameWindow extends JFrame {
 		lblNewLabel_19.setBounds(244, 229, 68, 64);
 		panel.add(lblNewLabel_19);
 		casillas[3][3] = lblNewLabel_19;
-		resetCasellas();
+		MovimentDTO info = new MovimentDTO();
+		info.setMillorPunt(millorPunt);
+		info.setPuntuacio(punt);
+		info.setCasellesAmbNumero(casellesAmbNumero);
+		actualitzarVista(info);
+		
+		
 
 		addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
@@ -251,8 +242,7 @@ public class gameWindow extends JFrame {
 
 				}
 
-				if (!codigo.equals("-1"))
-					actualitzarVista(cv.ferMoviment(codigo));
+				if (!codigo.equals("-1"))cv.PrFerMoviment(codigo);
 			}
 
 			public void keyReleased(KeyEvent e) {
@@ -262,22 +252,16 @@ public class gameWindow extends JFrame {
 			}
 		});
 
-		init();
+		
 	}
 
-	private void init() {
-		InfoPartidaDTO ipd = cv.crearPartida();
-		setCasellas(ipd.getInfo());
-		puntosActuales.setText(ipd.getPuntuacio().toString());
-		maxPunt.setText(ipd.getMillorPuntuacio().toString());
+	
 
-	}
-
-	private void actualitzarVista(MovimentDTO info) {
+	public void actualitzarVista(MovimentDTO info) {
 
 		setCasellas(info.getCasellesAmbNumero());
 		puntosActuales.setText(info.getPuntuacio().toString());
-		maxPunt.setText(info.getMillorPunt().toString());
+		if(info.getMillorPunt()!=null)maxPunt.setText(info.getMillorPunt().toString());
 		this.repaint();
 		this.revalidate();
 

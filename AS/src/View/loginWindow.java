@@ -25,29 +25,15 @@ public class loginWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private CtrlVista cv;
+	private JugarPartidaController cv;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					loginWindow frame = new loginWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public loginWindow() {
-		cv=CtrlVista.getInstance();
+		cv=JugarPartidaController.getInstance();
 		setTitle("Joc 2048 - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 379, 333);
@@ -71,9 +57,8 @@ public class loginWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//caso de uso de Login
 				try {
-					cv.ferAutenticacio(textField.getText(),textField_1.getText());
-					JFrame jf = cv.getMenuWindow();
-					jf.setVisible(true);
+					cv.PrLogin(textField.getText(),textField_1.getText());
+					
 					
 					dispose();
 				} catch (Exception e1) {

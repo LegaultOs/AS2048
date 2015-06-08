@@ -6,13 +6,13 @@ public class InfoPartidaDTO {
 	int puntuacio;
 	int millorPuntuacio;
 	ArrayList<CasellaDTO> info;
-	public int getPuntuacio() {
+	public Integer getPuntuacio() {
 		return puntuacio;
 	}
 	public void setPuntuacio(int puntuacio) {
 		this.puntuacio = puntuacio;
 	}
-	public int getMillorPuntuacio() {
+	public Integer getMillorPuntuacio() {
 		return millorPuntuacio;
 	}
 	public void setMillorPuntuacio(int millorPuntuacio) {

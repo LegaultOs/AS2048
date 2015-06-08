@@ -2,6 +2,7 @@ package View;
 
 import Domain.CntrlJugarPartida;
 import Domain.CtrlDataFactory;
+import Domain.DTO.InfoPartidaDTO;
 import Domain.DTO.MovimentDTO;
 
 public class CtrlVista {
@@ -55,6 +56,11 @@ public class CtrlVista {
 	public void ferAutenticacio(String text, String text2) throws Exception {
 		
 		cjp.ferAutenticacio(text, text2);
+		
+	}
+
+	public InfoPartidaDTO crearPartida() {
+		return cjp.crearPartida();
 		
 	}
 	

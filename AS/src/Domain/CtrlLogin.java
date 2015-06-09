@@ -4,12 +4,8 @@ public class CtrlLogin {
 	
 	
 	
-	
-	
-	
 	public Jugador autentica(String userN, String passwd ) throws Exception
-	{
-		
+	{	
 		
 		CtrlDataFactory cdf=CtrlDataFactory.getInstance();
 		ICtrlUsuariRegistrat icur = cdf.getCtrlUsuariRegistrat();

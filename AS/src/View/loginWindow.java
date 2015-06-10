@@ -19,21 +19,20 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
 
 public class loginWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField textField_1;
 	private JugarPartidaController cv;
-
-	
 
 	/**
 	 * Create the frame.
 	 */
 	public loginWindow() {
-		cv=JugarPartidaController.getInstance();
+		cv = JugarPartidaController.getInstance();
 		setTitle("Joc 2048 - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 379, 333);
@@ -41,33 +40,36 @@ public class loginWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		textField = new JTextField();
 		textField.setBounds(124, 37, 129, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
+
+		textField_1 = new JPasswordField();
 		textField_1.setBounds(124, 94, 129, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//caso de uso de Login
-				
-					cv.PrLogin(textField.getText(),textField_1.getText());
-					
-					
+				// caso de uso de Login
+				if (textField.getText().replace(" ", "").equals("")
+						|| new String(textField_1.getPassword()).replace(" ", "").equals("")) {
+
+					// no ha puesto o user o pass
+
+				} else {
+					cv.PrLogin(textField.getText(), new String(textField_1.getPassword()));
 					dispose();
-				
-				
+				}
+
 			}
 		});
 		btnNewButton.setBounds(51, 255, 91, 23);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -76,17 +78,17 @@ public class loginWindow extends JFrame {
 		});
 		btnNewButton_1.setBounds(230, 255, 91, 23);
 		contentPane.add(btnNewButton_1);
-		
+
 		JLabel lblNewLabel = new JLabel("Username");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel.setBounds(24, 40, 73, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Password");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_1.setBounds(24, 97, 73, 14);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Missatge");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(124, 170, 129, 49);

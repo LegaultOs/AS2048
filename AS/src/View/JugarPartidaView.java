@@ -3,6 +3,7 @@ package View;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import Domain.CntrlJugarPartida;
 import Domain.DTO.CasellaDTO;
@@ -40,17 +41,14 @@ public class JugarPartidaView {
 		actual= new menuWindow();
 		actual.setVisible(true);
 	}
-	public void getRankingWindow() {
-		actual= new rankingWindow();
-		actual.setVisible(true);
-	}
 	public void getStartWindow() {
 		actual= new startWindow();
 		actual.setVisible(true);
 	}
 
 	public void mostraMissatge(String string) {
-		// TODO Auto-generated method stub
+		JOptionPane.showConfirmDialog(null,
+				"Alerta", string, JOptionPane.OK_OPTION);
 		
 	}
 
@@ -91,7 +89,21 @@ public class JugarPartidaView {
 	}
 
 	public void mostrarRanking(ArrayList<JugadorDTO> rank) {
-		// TODO Auto-generated method stub
+		
+		Object[][] data = new Object[rank.size()][2];
+		int i =0;
+		for(JugadorDTO jd: rank)
+		{
+			data[i][0]=jd.getUsername();
+			data[i][1]=jd.getPunt();
+			i++;
+			
+			
+		}
+		
+		
+		actual= new rankingWindow(data);
+		actual.setVisible(true);
 		
 	}
 

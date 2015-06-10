@@ -78,9 +78,9 @@ public class CntrlJugarPartida {
 	public ArrayList<JugadorDTO> obtenirRanking() throws Exception
 	
 	{
-		CtrlConsultarRanquing ccr =  new CtrlConsultarRanquing();
 		
-		ArrayList<JugadorDTO> result = ccr.consultarRanking();
+		
+		ArrayList<JugadorDTO> result = ctrlCR.consultarRanking();
 		return result ;
 		
 	}

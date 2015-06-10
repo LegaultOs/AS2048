@@ -24,7 +24,7 @@ public class rankingWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public rankingWindow() {
+	public rankingWindow(Object[][] data) {
 		cv=JugarPartidaController.getInstance();
 		setTitle("Joc 2048 - ranking");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,8 +38,8 @@ public class rankingWindow extends JFrame {
 		scrollPane.setBounds(10, 10, 422, 252);
 		contentPane.add(scrollPane);
 		String[] columnNames = {"Puntuació","Jugador" };
-		Object[][] rowData = {{"ejemplo","ejemplo1"}};
-		table = new JTable(rowData,columnNames);
+		//Object[][] rowData = {{"ejemplo","ejemplo1"}};
+		table = new JTable(data,columnNames);
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("Ok");

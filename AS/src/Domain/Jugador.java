@@ -1,10 +1,19 @@
 package Domain;
 
+import java.util.ArrayList;
+
 public class Jugador extends UsuariRegistrat {
 	
 	private String email;
 	private int millorPuntuacio;
+	private ArrayList<Partida> partidesJugades;//relacion con Partida
 	
+	public ArrayList<Partida> getPartidesJugades() {
+		return partidesJugades;
+	}
+	public void setPartidesJugades(ArrayList<Partida> partidesJugades) {
+		this.partidesJugades = partidesJugades;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -20,13 +29,19 @@ public class Jugador extends UsuariRegistrat {
 	
 	public int getPuntuacioMitja()
 	{
-		return 0;
+		int punt=0;
+		for(Partida p : partidesJugades)
+		{
+			punt+=p.getPuntuacio();			
+		}
+		
+		return punt/partidesJugades.size();
 	}
 	
 	
 	public void acualitzaAssoc(int puntuacio, Partida p) {
 		if (puntuacio > this.millorPuntuacio) this.millorPuntuacio = puntuacio;
-		//falta asociarlo a la partida
+		partidesJugades.add(p);
 	}
 		
 	@Override
@@ -36,6 +51,6 @@ public class Jugador extends UsuariRegistrat {
 	}
 	
 	public int numPartidaJugada()
-	{return 0;}
+	{return partidesJugades.size();}
 
 }

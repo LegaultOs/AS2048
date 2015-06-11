@@ -65,7 +65,21 @@ public class CntrlJugarPartida {
 		MovimentDTO res = p.ferMoviment(tipusMov);
 		
 		res.setMillorPunt(jugador.getMillorPuntuacio());
-		
+		if(res.isGuanyada()== true)
+		{
+			Factoria f = Factoria.getInstance();
+			
+			IMissatgeriaAdapter m = f.getMissatgeria();
+			
+			String miss = new String();
+			
+			miss = p.getIdPartida()+" "+res.getPuntuacio();
+			
+			m.enviarMissatge(miss);
+			
+			
+				
+		}
 		if (res.isAcabada()) jugador.acualitzaAssoc(res.getPuntuacio(), p);
 		
 		return res;

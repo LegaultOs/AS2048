@@ -2,5 +2,5 @@ package Domain;
 
 public interface IMissatgeriaAdapter {
 
-	public void enviarMissatge(String miss);
+	public void enviarMissatge(String miss,String email);
 }

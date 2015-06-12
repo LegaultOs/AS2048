@@ -75,7 +75,7 @@ public class CntrlJugarPartida {
 			
 			miss = p.getIdPartida()+" "+res.getPuntuacio();
 			
-			m.enviarMissatge(miss);
+			m.enviarMissatge(miss,jugador.getEmail());
 			
 			
 				

@@ -1,15 +1,6 @@
 /Service/
 /Domain/
-<<<<<<< HEAD
-/MissatgeriaCallbackHandler.class
-/MissatgeriaStub$EnviaMissatge$Factory.class
-/MissatgeriaStub$EnviaMissatge.class
-/MissatgeriaStub$EnviaMissatgeResponse$Factory.class
-/MissatgeriaStub$EnviaMissatgeResponse.class
-/MissatgeriaStub$ExtensionMapper.class
-/MissatgeriaStub.class
 /src/
-=======
 /Hibernate/
 /Model/
->>>>>>> refs/remotes/origin/master
+

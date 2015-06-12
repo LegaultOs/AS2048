@@ -1,5 +1,6 @@
 /Service/
 /Domain/
+<<<<<<< HEAD
 /MissatgeriaCallbackHandler.class
 /MissatgeriaStub$EnviaMissatge$Factory.class
 /MissatgeriaStub$EnviaMissatge.class
@@ -8,3 +9,7 @@
 /MissatgeriaStub$ExtensionMapper.class
 /MissatgeriaStub.class
 /src/
+=======
+/Hibernate/
+/Model/
+>>>>>>> refs/remotes/origin/master

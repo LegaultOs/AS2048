@@ -14,13 +14,14 @@ import src.MissatgeriaStub.EnviaMissatgeResponse;
 
 public class ServeiMissatgeria {
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
+		String missatge= "Test";
+		String email= "maildeprueba";
 		
-		
-		enviarMissatge("HOLAAA OSCAAAR","oscaracso90@gmail.com");
+		enviarMissatge(missatge,email);
 		
 		//main para pruebas
-	}
+	}*/
 
 	
 	public static void enviarMissatge(String missatge,String email)//irá sin static , pero se queda así para pruebas

@@ -2,8 +2,15 @@ package Domain;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@PrimaryKeyJoinColumn(name = "username")
 public class Jugador extends UsuariRegistrat {
 	
+
 	private String email;
 	private int millorPuntuacio;
 	private ArrayList<Partida> partidesJugades;//relacion con Partida
@@ -14,6 +21,8 @@ public class Jugador extends UsuariRegistrat {
 	public void setPartidesJugades(ArrayList<Partida> partidesJugades) {
 		this.partidesJugades = partidesJugades;
 	}
+	
+	@Column(unique = true, nullable = false) 
 	public String getEmail() {
 		return email;
 	}

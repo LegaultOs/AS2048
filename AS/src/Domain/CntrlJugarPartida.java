@@ -53,9 +53,11 @@ public class CntrlJugarPartida {
 	public void  ferAutenticacio(String userN, String passwd) throws Exception
 	{
 		
-		jugador= ctrlLogin.autentica(userN, passwd);
+		ctrlLogin.Login(userN, passwd);
 		
-		
+		ICtrlJugador icj = CtrlDataFactory.getInstance().getCtrlJugador();
+		Jugador aux = icj.getJugadorPerNom(userN);
+		if(aux == null) throw new Exception("usuariNoJugador");
 		
 	}
 	
@@ -67,15 +69,15 @@ public class CntrlJugarPartida {
 		res.setMillorPunt(jugador.getMillorPuntuacio());
 		if(res.isGuanyada()== true)
 		{
-			Factoria f = Factoria.getInstance();
+			//Factoria f = Factoria.getInstance();
 			
-			IMissatgeriaAdapter m = f.getMissatgeria();
+			//IMissatgeriaAdapter m = f.getMissatgeria();
 			
 			String miss = new String();
 			
 			miss = p.getIdPartida()+" "+res.getPuntuacio();
 			
-			m.enviarMissatge(miss,jugador.getEmail());
+			//m.enviarMissatge(miss,jugador.getEmail());
 			
 			
 				

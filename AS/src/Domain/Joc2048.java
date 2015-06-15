@@ -2,15 +2,18 @@ package Domain;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+
 import Domain.DTO.JugadorDTO;
 
+@Entity
 public class Joc2048 {
 	
 	private static Joc2048 instance;
 	private int idPartida;	
 	private EstrategiaOrdenacio estrategia;
 	
-	private Joc2048() //tiene que ir en private! XD
+	public Joc2048() //tiene que ir en private! XD
 	{	}
 	
 	public static Joc2048 getInstance()

@@ -26,10 +26,8 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 		
 		session.beginTransaction(); 
 		
-		Joc2048 joc = new Joc2048(); 
-		joc = (Joc2048)session.get(Joc2048.class, id); 
+		return (Joc2048)session.get(Joc2048.class, id); 
 
-		return joc;
 	}
 	
 	public void insertaJoc(Joc2048 joc){
@@ -44,6 +42,8 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 		Session session = factory.getCurrentSession(); 
 		
 		session.beginTransaction(); 
+		
+		joc.setId(1);
 		
 		session.saveOrUpdate(joc);
 		session.getTransaction().commit(); 

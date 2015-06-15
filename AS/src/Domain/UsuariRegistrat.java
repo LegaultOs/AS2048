@@ -1,11 +1,17 @@
 package Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class UsuariRegistrat {
 	
 	private String nom;
 	private String cognom;
 	private String username;
 	private String pwd;
+	
+	@Id
 	public String getUsername() {
 		return username;
 	}

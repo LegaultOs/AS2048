@@ -92,10 +92,7 @@ public class CntrlJugarPartida {
 	
 	
 	public ArrayList<JugadorDTO> obtenirRanking() throws Exception
-	
 	{
-		
-		
 		ArrayList<JugadorDTO> result = ctrlCR.consultarRanking();
 		return result ;
 		

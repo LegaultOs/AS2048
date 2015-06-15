@@ -39,7 +39,9 @@ public class AdminBD {
 		j = (Jugador) session.createQuery("from Jugador where username = '"+"OlgaC"+"'").uniqueResult();*/
 		ur = new UsuariRegistrat();
 		ur = (UsuariRegistrat) session.createQuery("from UsuariRegistrat where username = '"+"OlgaC"+"'").uniqueResult();
-		
+		if(ur == null) System.out.println("usernameNoExisteix");
+		if (!ur.getPass().equals("hola"))  System.out.println("pwdIncorrecte");
+		if (!ur.etsJugador()) System.out.println("usuariNoJugador");
 		session.getTransaction().commit(); 
 		return ur;
 		

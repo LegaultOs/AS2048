@@ -22,7 +22,7 @@ public class startWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public startWindow() {
-		cv=JugarPartidaController.getInstance();
+		cv = JugarPartidaController.getInstance();
 		setTitle("Joc 2048");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 328, 240);
@@ -36,9 +36,7 @@ public class startWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//Cargaremos la ventana de login
 				cv.PrJugarPartida();
-				
-				
-				dispose();
+				//dispose();
 			}
 		});
 		btnNewButton.setBounds(90, 86, 122, 23);

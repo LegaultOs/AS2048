@@ -4,40 +4,29 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
-import Domain.CntrlJugarPartida;
 import Domain.DTO.CasellaDTO;
 import Domain.DTO.JugadorDTO;
 import Domain.DTO.MovimentDTO;
 
 public class JugarPartidaView {
 	
-	private static JugarPartidaView instance;
 	private JFrame actual;
 	
-	private JugarPartidaView(){}
-	
-	public static JugarPartidaView getInstance()
-	{
-		if(instance==null)
-		{
-			
-			instance = new JugarPartidaView();
-		}
+	public JugarPartidaView() {
 		
-		return instance;
 	}
-	
 	
 	public void mostrarJoc(Integer punt,Integer millorPunt,ArrayList<CasellaDTO> casellesAmbNumero) {
 		actual= new gameWindow(punt,millorPunt,casellesAmbNumero) ;
 		actual.setVisible(true);
 	}
 	public void mostrarLogin() {
+		actual.dispose();
 		actual= new loginWindow();
 		actual.setVisible(true);
 	}
 	public void mostrarWindowJugar() {
+		actual.dispose();
 		actual= new menuWindow();
 		actual.setVisible(true);
 	}
@@ -47,9 +36,8 @@ public class JugarPartidaView {
 	}
 
 	public void mostraMissatge(String string) {
-		JOptionPane.showConfirmDialog(null,
-				"Alerta", string, JOptionPane.OK_OPTION);
-		
+		loginWindow log = (loginWindow) actual;
+		log.mostraMissatge(string);
 	}
 
 	public void updateJoc(Integer puntuacio,

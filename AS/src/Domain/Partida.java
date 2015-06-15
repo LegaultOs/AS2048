@@ -30,6 +30,10 @@ public class Partida implements Serializable{
 	private int puntuacio;
 	private Casella[][] casella; //relacion con la tabla de casella
 	
+	
+	public Partida () {	
+	}
+	
 	@Id
 	@Column(nullable = false)
 	public int getIdPartida() {

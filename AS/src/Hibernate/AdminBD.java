@@ -12,7 +12,7 @@ public class AdminBD {
 	
 	public AdminBD(){}
 	
-	public Jugador insertaUsuaris(String n) {
+	public Jugador insertaUsuaris() {
 		// TODO Auto-generated method stub
 		AnnotationConfiguration config = new AnnotationConfiguration(); 
 		config.addAnnotatedClass(UsuariRegistrat.class); 
@@ -24,22 +24,23 @@ public class AdminBD {
 		Session session = factory.getCurrentSession(); 
 		session.beginTransaction(); 
 		
-		/*UsuariRegistrat ur = new UsuariRegistrat(); 
-		
-		ur.setNom("Olga");
-		ur.setCognom("Carbo");
-		ur.setPass("hola");
-		ur.setUsername("OlgaC");*/
-		Jugador ur = new Jugador("gmail", "Olga", "Carbo", "OlgaC", "hola");
+		UsuariRegistrat ur = new UsuariRegistrat(); 
+		ur = new UsuariRegistrat();
+		ur.setNom("wangyang");
+		ur.setCognom("ye");
+		ur.setPass("1994");
+		ur.setUsername("ywy");
 		session.save(ur); 
+	
+		Jugador j = new Jugador("Olga", "Carbo", "OlgaC", "hola", "gmail");
+		session.save(j);
+	
+		j = new Jugador();
+		j = (Jugador) session.createQuery("from Jugador where username = '"+"OlgaC"+"'").uniqueResult();
 		
-		session.getTransaction().commit();
+		session.getTransaction().commit(); 
+		return j;
 		
-		session = factory.getCurrentSession(); 
-		session.beginTransaction();
-		Jugador u =  (Jugador) session.createQuery("from Jugador where username = '"+n+"'").uniqueResult();
-		session.getTransaction().commit();
-		return u;
 	}
 	
 	public void insertaPartida(){
@@ -62,8 +63,7 @@ public class AdminBD {
 		
 		session.saveOrUpdate(p);
 		
-		session.getTransaction().commit();
-
+		session.getTransaction().commit(); 
 	}
 
 }

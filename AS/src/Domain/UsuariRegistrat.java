@@ -1,27 +1,41 @@
 package Domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "UsuariRegistrat")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class UsuariRegistrat {
 	
+
+	@Column(name = "NomU")
 	private String nom;
+	
+	@Column(name = "Cognom")
 	private String cognom;
+	
+	@Id
+	@Column(name = "Username")
 	private String username;
+	
+	@Column(name = "Password")
 	private String pwd;
 	
+	public UsuariRegistrat() {
+	}
 	
-	public UsuariRegistrat() { }
-	
-	public UsuariRegistrat(String nom, String cognom, String username, String pwd) {
+	public UsuariRegistrat(String nom, String cognom, String userN, String pwd) {
 		this.nom = nom;
 		this.cognom = cognom;
-		this.username = username;
+		this.username = userN;
 		this.pwd = pwd;
 	}
 	
-	@Id
 	public String getUsername() {
 		return username;
 	}

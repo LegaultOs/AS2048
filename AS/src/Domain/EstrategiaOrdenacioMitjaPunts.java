@@ -15,7 +15,7 @@ public class EstrategiaOrdenacioMitjaPunts implements EstrategiaOrdenacio {
 		{
 			JugadorDTO player = new JugadorDTO();
 			player.setUsername(j.getUsername());
-			player.setPunt(j.getPuntuacioMitja());
+			player.setPunt(j.PuntuacioMitja());
 			cont+=j.numPartidaJugada();
 		
 

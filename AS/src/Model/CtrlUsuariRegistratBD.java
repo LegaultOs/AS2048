@@ -14,7 +14,7 @@ import Domain.UsuariRegistrat;
 public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 
 	@Override
-	public UsuariRegistrat getUsuari(String userN) {
+	public UsuariRegistrat getUsuari(String userN) throws Exception {
 			
 			AnnotationConfiguration config = new AnnotationConfiguration(); 
 			config.addAnnotatedClass(UsuariRegistrat.class); 
@@ -29,7 +29,7 @@ public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 			
 			UsuariRegistrat usuari = new UsuariRegistrat(); 
 			usuari = (UsuariRegistrat) session.createQuery("from UsuariRegistrat where username = '"+userN+"'").uniqueResult();
-			//usuari = (UsuariRegistrat)session.get(UsuariRegistrat.class, userN); 
+			if(usuari == null) throw new Exception("usernameNoExisteix");
 			
 			session.getTransaction().commit(); 
 			

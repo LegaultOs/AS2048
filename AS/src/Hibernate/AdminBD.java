@@ -12,7 +12,7 @@ public class AdminBD {
 	
 	public AdminBD(){}
 	
-	public Jugador insertaUsuaris() {
+	public UsuariRegistrat insertaUsuaris() {
 		// TODO Auto-generated method stub
 		AnnotationConfiguration config = new AnnotationConfiguration(); 
 		config.addAnnotatedClass(UsuariRegistrat.class); 
@@ -35,11 +35,13 @@ public class AdminBD {
 		Jugador j = new Jugador("Olga", "Carbo", "OlgaC", "hola", "gmail");
 		session.save(j);
 	
-		j = new Jugador();
-		j = (Jugador) session.createQuery("from Jugador where username = '"+"OlgaC"+"'").uniqueResult();
+		/*j = new Jugador();
+		j = (Jugador) session.createQuery("from Jugador where username = '"+"OlgaC"+"'").uniqueResult();*/
+		ur = new UsuariRegistrat();
+		ur = (UsuariRegistrat) session.createQuery("from UsuariRegistrat where username = '"+"OlgaC"+"'").uniqueResult();
 		
 		session.getTransaction().commit(); 
-		return j;
+		return ur;
 		
 	}
 	

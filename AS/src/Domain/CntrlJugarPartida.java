@@ -54,11 +54,11 @@ public class CntrlJugarPartida {
 	{
 		
 		ctrlLogin.Login(userN, passwd);
-		
-		ICtrlJugador icj = CtrlDataFactory.getInstance().getCtrlJugador();
-		Jugador aux = icj.getJugadorPerNom(userN);
-		if(aux == null) throw new Exception("usuariNoJugador");
-		
+		CtrlDataFactory cdf=CtrlDataFactory.getInstance();
+		ICtrlUsuariRegistrat icur = cdf.getCtrlUsuariRegistrat();
+		UsuariRegistrat ur = icur.getUsuari(userN);
+		if (!ur.etsJugador()) throw new Exception("usuariNoJugador");
+		this.jugador = (Jugador) ur; 
 	}
 	
 	

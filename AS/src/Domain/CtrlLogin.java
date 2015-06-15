@@ -9,12 +9,8 @@ public class CtrlLogin {
 		
 		CtrlDataFactory cdf=CtrlDataFactory.getInstance();
 		ICtrlUsuariRegistrat icur = cdf.getCtrlUsuariRegistrat();
-		UsuariRegistrat aux = icur.getUsuari(userN);
-		
-		
-		if(aux == null) throw new Exception("usuariNoExisteix");
-		
-		if(!aux.getPass().equals(passwd))throw new Exception("pwdIncorrecte");
+		UsuariRegistrat ur = icur.getUsuari(userN);
+		if(!ur.getPass().equals(passwd))throw new Exception("pwdIncorrecte");
 		
 	}
 

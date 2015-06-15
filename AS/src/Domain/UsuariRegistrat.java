@@ -39,23 +39,28 @@ public class UsuariRegistrat {
 	public String getUsername() {
 		return username;
 	}
+	
 	public String getPass() {
 		return pwd;
 	}
+	
 	public boolean etsJugador()
 	{
-		
 		return false;
 	}
+	
 	public String getNom() {
 		return nom;
 	}
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
 	public String getCognom() {
 		return cognom;
 	}
+	
 	public void setCognom(String cognom) {
 		this.cognom = cognom;
 	}
@@ -63,6 +68,7 @@ public class UsuariRegistrat {
 	public void setPass(String pwd) {
 		this.pwd = pwd;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}

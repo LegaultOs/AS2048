@@ -28,7 +28,8 @@ public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 			session.beginTransaction(); 
 			
 			UsuariRegistrat usuari = new UsuariRegistrat(); 
-			usuari = (UsuariRegistrat)session.get(UsuariRegistrat.class, userN); 
+			usuari = (UsuariRegistrat) session.createQuery("from UsuariRegistrat where username = '"+userN+"'").uniqueResult();
+			//usuari = (UsuariRegistrat)session.get(UsuariRegistrat.class, userN); 
 			
 			session.getTransaction().commit(); 
 			

@@ -11,6 +11,16 @@ public class UsuariRegistrat {
 	private String username;
 	private String pwd;
 	
+	
+	public UsuariRegistrat() { }
+	
+	public UsuariRegistrat(String nom, String cognom, String username, String pwd) {
+		this.nom = nom;
+		this.cognom = cognom;
+		this.username = username;
+		this.pwd = pwd;
+	}
+	
 	@Id
 	public String getUsername() {
 		return username;

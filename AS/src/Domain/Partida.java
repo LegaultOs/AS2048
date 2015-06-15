@@ -28,7 +28,7 @@ public class Partida implements Serializable{
 	private boolean estaAcabada;
 	private boolean estaGuanyada;
 	private int puntuacio;
-	private Casella[][] casella ;//relacion con la tabla de casella
+	private Casella[][] casella; //relacion con la tabla de casella
 	
 	@Id
 	@Column(nullable = false)
@@ -38,13 +38,13 @@ public class Partida implements Serializable{
 	public void setIdPartida(int idPartida) {
 		this.idPartida = idPartida;
 	}
-	public boolean isAcabada() {
+	public boolean getEstaAcabada() {
 		return estaAcabada;
 	}
 	public void setEstaAcabada(boolean estaAcabada) {
 		this.estaAcabada = estaAcabada;
 	}
-	public boolean isEstaGuanyada() {
+	public boolean getEstaGuanyada() {
 		return estaGuanyada;
 	}
 	public void setEstaGuanyada(boolean estaGuanyada) {

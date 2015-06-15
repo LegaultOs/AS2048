@@ -15,9 +15,18 @@ public class Jugador extends UsuariRegistrat {
 	private int millorPuntuacio;
 	private ArrayList<Partida> partidesJugades;//relacion con Partida
 	
+	public Jugador() { }
+	
+	public Jugador(String email, String nom, String cognom, String username, String pwd) {
+		super(nom, cognom, username, pwd);
+		this.email = email;
+		this.millorPuntuacio = 0;
+	}
+	
 	public ArrayList<Partida> getPartidesJugades() {
 		return partidesJugades;
 	}
+	
 	public void setPartidesJugades(ArrayList<Partida> partidesJugades) {
 		this.partidesJugades = partidesJugades;
 	}

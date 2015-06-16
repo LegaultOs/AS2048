@@ -126,6 +126,7 @@ public class Partida implements Serializable{
 		}
 	}
 	
+	//canvi: "nova" funcio per comprovar si una casella es mergrable amb seus veins
 	private boolean mergeableAmbVecino(int y, int x, boolean acabat, Casella c) {
 		if(x>0 && acabat)
 		{
@@ -155,6 +156,7 @@ public class Partida implements Serializable{
 		return acabat;
 	}
 	
+	//canvi: ara amb funcions mes entendible
 	public boolean checkAcabada()
 	{
 		boolean acabat =true;
@@ -320,7 +322,7 @@ public class Partida implements Serializable{
 		}
 		return merge;
 	}
-	
+	//canvi: encapsulant dades perque al diseny original es feia amb out xxx: int, i es dificil pel java
 	private MoureCasellaDTO moureCasella(Casella c, Casella c1)
 	{
 		int n = c.getNum();
@@ -353,10 +355,13 @@ public class Partida implements Serializable{
 		}
 		return new MoureCasellaDTO(b, m, espaiblanc);
 	}
-
+	
+	//canvi: necessari per que el controlador de jugar partida pugui actualitzar les dades a BD
 	public Casella[][] obteCaselles() {
 		return casella;
 	}
+	
+	//el mapeig
 	@ManyToOne(cascade = CascadeType.ALL)
 	public Jugador getJugador() {
 		return jugador;

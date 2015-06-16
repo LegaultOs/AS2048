@@ -57,7 +57,7 @@ public class Joc2048 {
 	{
 		if(op.getClass().equals(EstrategiaOrdenacioPunts.class)) {
 			this.ordenacio=op;
-			this.estrategia = "Punts";
+			this.estrategia = "Punts";  //para guardar el tipo de estrategia en DB para recuperaciones futuras
 		}
 	}
 	

@@ -38,6 +38,7 @@ public class CntrlJugarPartida {
 	{	
 		//Joc2048 joc =Joc2048.getInstance();
 		
+		//@ recuperamos los datos de Joc2048 desde BD, si no esta pues se crea
 		Joc2048 joc = CtrlDataFactory.getInstance().getCtrlJoc2048().get(1);
 		if (joc == null) joc = Joc2048.getInstance();
 		int id=joc.getIdPartida();
@@ -50,7 +51,7 @@ public class CntrlJugarPartida {
 		CtrlDataFactory.getInstance().getCtrlJoc2048().insertaJoc(joc);
 		p = new Partida(id);
 		p.inicializar();
-
+		//per mantenir persistent les dades de la partida
 		CtrlDataFactory.getInstance().getCtrlPartida().insertaPartida(p);
 		
 		//per mantenir persistent les dades de les caselles
@@ -68,7 +69,7 @@ public class CntrlJugarPartida {
 		
 		int pi = p.getPuntuacio();
 		int mp = jugador.getMillorPuntuacio();
-		
+		//encapsulando datos
 		InfoPartidaDTO result = new InfoPartidaDTO();
 		result.setInfo(info);
 		result.setMillorPuntuacio(mp);
@@ -99,6 +100,8 @@ public class CntrlJugarPartida {
 			IMissatgeriaAdapter m = f.getMissatgeria();
 			String miss = new String();
 			miss = p.getIdPartida()+" "+res.getPuntuacio();
+			
+			//canvi: passant email del jugador al servei per enviar mail 
 			m.enviarMissatge(miss,jugador.getEmail());
 				
 		}

@@ -26,6 +26,11 @@ public class JugarPartidaView {
 		actual.setVisible(true);
 	}
 	
+	public void mostraMissatge(String string) {
+		loginWindow log = (loginWindow) actual;
+		log.mostraMissatge(string);
+	}
+	
 	public void mostrarWindowJugar() {
 		actual.dispose();
 		actual= new menuWindow();
@@ -35,11 +40,6 @@ public class JugarPartidaView {
 	public void mostrarJoc(Integer punt, Integer millorPunt, ArrayList<CasellaDTO> casellesAmbNumero) {
 		actual= new gameWindow(punt,millorPunt,casellesAmbNumero) ;
 		actual.setVisible(true);
-	}
-	
-	public void mostraMissatge(String string) {
-		loginWindow log = (loginWindow) actual;
-		log.mostraMissatge(string);
 	}
 
 	public void updateJoc(Integer puntuacio,

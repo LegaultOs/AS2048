@@ -28,6 +28,13 @@ public class Casella implements Serializable{
 		this.compoundkey = compoundkey;
 	}
 
+	public int dameNumeroDeFila() {
+		return this.numeroFila;
+	}
+	
+	public int dameNumeroDeColumna () {
+		return this.numeroColumna;
+	}
 	
 	public Integer getNum() {
 		if (numero != null) return numero;

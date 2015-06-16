@@ -33,7 +33,7 @@ public class gameWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public gameWindow( Integer punt,Integer millorPunt,ArrayList<CasellaDTO> casellesAmbNumero ) {
+	public gameWindow(Integer punt,Integer millorPunt,ArrayList<CasellaDTO> casellesAmbNumero ) {
 		cv = JugarPartidaController.getInstance();
 
 		setTitle("Joc 2048 - Jugar Partida");
@@ -44,36 +44,60 @@ public class gameWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("High Score:");
+		JLabel lblNewLabel = new JLabel("High Score:");  //titulo
 		lblNewLabel.setBounds(10, 30, 65, 14);
 		contentPane.add(lblNewLabel);
 
-		maxPunt = new JLabel("score");
+		maxPunt = new JLabel("hScore"); //puntuacion
 		maxPunt.setBounds(83, 30, 46, 14);
 		contentPane.add(maxPunt);
 
-		JLabel lblNewLabel_2 = new JLabel("Current Score:");
+		JLabel lblNewLabel_2 = new JLabel("Punts Actual:"); //titulo
 		lblNewLabel_2.setBounds(184, 30, 83, 14);
 		contentPane.add(lblNewLabel_2);
 
 		puntosActuales = new JLabel("cScore");
-		puntosActuales.setBounds(277, 30, 56, 14);
+		puntosActuales.setBounds(277, 30, 56, 14); //puntuacion
 		contentPane.add(puntosActuales);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(153, 204, 255));
+		panel.setBackground(new Color(153, 204, 255)); //fondo azul
 		panel.setBounds(10, 69, 323, 314);
 		contentPane.add(panel);
 		panel.setLayout(null);
-
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setOpaque(true);
-		lblNewLabel_4.setForeground(new Color(0, 0, 0));
-		lblNewLabel_4.setBackground(new Color(255, 153, 102));
-		lblNewLabel_4.setBounds(10, 11, 68, 62);
-		panel.add(lblNewLabel_4);
-		casillas[0][0] = lblNewLabel_4;
+		
+		int x, y;
+		int w = 68;
+		int h = 62;
+		for (int i = 0; i < 4; ++i) {
+			for (int j = 0; j < 4; ++j) {
+				JLabel jCasella = new JLabel("New label"); //dibujando las casellas
+				jCasella.setHorizontalAlignment(SwingConstants.CENTER);
+				jCasella.setOpaque(true);
+				jCasella.setForeground(new Color(0, 0, 0));
+				jCasella.setBackground(new Color(255, 153, 102));
+				if (i == 0) y = 10;              //como que el eje vertical el es eje y, y i indica fila, se aumenta la y con el aumento de i 
+				else if (i == 1) y =88;
+				else if (i == 2) y = 166;
+				else y = 244;
+				if (j == 0) x = 10;
+				else if (j == 1) x =88;
+				else if (j == 2) x = 166;
+				else x = 244;
+				jCasella.setBounds(x, y, w, h);
+				panel.add(jCasella);
+				casillas[i][j] = jCasella;
+			}
+		}
+		
+		/*JLabel c00 = new JLabel("New label"); //dibujando las casellas
+		c00.setHorizontalAlignment(SwingConstants.CENTER);
+		c00.setOpaque(true);
+		c00.setForeground(new Color(0, 0, 0));
+		c00.setBackground(new Color(255, 153, 102));
+		c00.setBounds(10, 11, 68, 62);
+		panel.add(c00);
+		casillas[0][0] = c00;
 
 		JLabel lblNewLabel_5 = new JLabel("New label");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
@@ -208,14 +232,13 @@ public class gameWindow extends JFrame {
 		lblNewLabel_19.setBackground(new Color(255, 153, 102));
 		lblNewLabel_19.setBounds(244, 229, 68, 64);
 		panel.add(lblNewLabel_19);
-		casillas[3][3] = lblNewLabel_19;
+		casillas[3][3] = lblNewLabel_19;*/
+		
 		MovimentDTO info = new MovimentDTO();
 		info.setMillorPunt(millorPunt);
 		info.setPuntuacio(punt);
 		info.setCasellesAmbNumero(casellesAmbNumero);
 		actualitzarVista(info);
-		
-		
 
 		addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
@@ -223,7 +246,6 @@ public class gameWindow extends JFrame {
 				// caso de uso Mover casilla
 				String codigo = new String();
 				switch (code) {
-
 				case KeyEvent.VK_UP:
 					codigo = "amunt";
 					break;
@@ -239,7 +261,6 @@ public class gameWindow extends JFrame {
 				default:
 					codigo = "-1";
 					break;
-
 				}
 
 				if (!codigo.equals("-1"))cv.PrFerMoviment(codigo);
@@ -258,13 +279,11 @@ public class gameWindow extends JFrame {
 	
 
 	public void actualitzarVista(MovimentDTO info) {
-
 		setCasellas(info.getCasellesAmbNumero());
 		puntosActuales.setText(info.getPuntuacio().toString());
-		if(info.getMillorPunt()!=null)maxPunt.setText(info.getMillorPunt().toString());
+		if(info.getMillorPunt()!=null) maxPunt.setText(info.getMillorPunt().toString());
 		this.repaint();
 		this.revalidate();
-
 	}
 
 	private void resetCasellas() {
@@ -272,21 +291,14 @@ public class gameWindow extends JFrame {
 		for (int i = 0; i < ANCHO; i++) {
 			for (int j = 0; j < ALTO; j++) {
 				casillas[i][j].setText("");
-
 			}
 		}
-
 	}
 
 	private void setCasellas(ArrayList<CasellaDTO> info) {
-
 		resetCasellas();
-
 		for (CasellaDTO c : info) {
-
-			casillas[c.getI()][c.getJ()].setText(c.getNumero().toString());
-
+			casillas[c.getI()-1][c.getJ()-1].setText(c.getNumero().toString());
 		}
-
 	}
 }

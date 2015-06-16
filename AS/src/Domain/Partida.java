@@ -117,13 +117,14 @@ public class Partida implements Serializable{
 					casellabuida.add(c);
 			}
 		}
-		if(casellabuida.size()>0)
+		if (casellabuida.size()>0)
 		{
 			n= (int) (Math.random() * casellabuida.size());
 			c1=casellabuida.get(n);
 			if(Math.random() > 0.1) randomN=2;
 			else randomN=4;
 			c1.setNum(randomN);
+			System.out.println(c1.dameNumeroDeFila() + " " + c1.dameNumeroDeColumna() + " " + c1.getNum());
 		}
 	}
 	

@@ -1,5 +1,4 @@
 package DomainLayer.Classes;
-import java.awt.List;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Set;
@@ -60,8 +59,6 @@ public class Partida implements Serializable{
 	public void setPuntuacio(int puntuacio) {
 		this.puntuacio = puntuacio;
 	}
-	
-	//entiendo yo que el crearPartida es el constructor
 	
 	public Partida(int id){
 		idPartida = id;

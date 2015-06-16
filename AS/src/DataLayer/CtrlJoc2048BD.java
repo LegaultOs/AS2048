@@ -14,12 +14,7 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 
 	@Override
 	public Joc2048 get(int id) {
-		
-		AnnotationConfiguration config = new AnnotationConfiguration(); 
-		config.addAnnotatedClass(Joc2048.class); 
-		config.configure("hibernate.cfg.xml"); 
-		
-		new SchemaExport(config).create(true, true);
+	
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		
@@ -29,19 +24,13 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 
 	}
 	
+	@Override
 	public void insertaJoc(Joc2048 joc){
-		
-		AnnotationConfiguration config = new AnnotationConfiguration(); 
-		config.addAnnotatedClass(Joc2048.class); 
-		config.configure("hibernate.cfg.xml"); 
-		
-		new SchemaExport(config).create(true, true);
+
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
-		
-		joc.setId(1);
-		
+	
 		session.saveOrUpdate(joc);
 		session.getTransaction().commit(); 
 	}

@@ -13,7 +13,6 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class CtrlPartidaBD implements ICtrlPartida {
 
-
 	@Override
 	public Partida getPartida(int idPartida) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 

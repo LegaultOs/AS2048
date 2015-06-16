@@ -34,7 +34,10 @@ public class CntrlJugarPartida {
 	
 	public InfoPartidaDTO crearPartida()
 	{	
-		Joc2048 joc =Joc2048.getInstance();
+		//Joc2048 joc =Joc2048.getInstance();
+		
+		Joc2048 joc = CtrlDataFactory.getInstance().getCtrlJoc2048().get(1);
+		if (joc == null) joc = Joc2048.getInstance();
 		int id=joc.getIdPartida();
 		id++;
 		joc.setId(id);
@@ -42,9 +45,11 @@ public class CntrlJugarPartida {
 		EstrategiaOrdenacioFactory eof= EstrategiaOrdenacioFactory.getInstance();
 		EstrategiaOrdenacio op = eof.creaEstrategiaOrdenacioPunts();
 		joc.assignaEstrategiaOrdenacioPunts(op);
-		
+		CtrlDataFactory.getInstance().getCtrlJoc2048().insertaJoc(joc);
 		p = new Partida(id);
 		p.inicializar();
+
+		CtrlDataFactory.getInstance().getCtrlPartida().insertaPartida(p);
 		
 		ArrayList<CasellaDTO> info = new ArrayList<CasellaDTO>();
 		info = p.casellesAmbNumero();

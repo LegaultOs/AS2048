@@ -32,6 +32,7 @@
         
         <mapping class = "DomainLayer.Classes.Partida"/>
 		<mapping class = "DomainLayer.Classes.Jugador"/>
+		<mapping class = "DomainLayer.Classes.Joc2048"/>
 	
         <!-- Drop and re-create the database schema on startup -->
 <!--         <property name="hbm2ddl.auto">create</property>  -->

@@ -14,7 +14,6 @@ import Hibernate.CompoundKey;
 public class Casella implements Serializable{
 	
 	CompoundKey compoundkey; 
-	
 	private int numeroFila;
 	private int numeroColumna;
 	private Integer numero;

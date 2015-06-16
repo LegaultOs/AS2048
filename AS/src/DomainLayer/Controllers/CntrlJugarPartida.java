@@ -8,6 +8,7 @@ import Domain.DTO.JugadorDTO;
 import Domain.DTO.MovimentDTO;
 import DomainLayer.Adapters.Factoria;
 import DomainLayer.Adapters.IMissatgeriaAdapter;
+import DomainLayer.Classes.Casella;
 import DomainLayer.Classes.EstrategiaOrdenacio;
 import DomainLayer.Classes.EstrategiaOrdenacioFactory;
 import DomainLayer.Classes.Joc2048;
@@ -16,6 +17,7 @@ import DomainLayer.Classes.Partida;
 import DomainLayer.Classes.UsuariRegistrat;
 import DomainLayer.DataInterface.CtrlDataFactory;
 import DomainLayer.DataInterface.ICtrlUsuariRegistrat;
+import Hibernate.CompoundKey;
 
 public class CntrlJugarPartida {
 
@@ -50,6 +52,16 @@ public class CntrlJugarPartida {
 		p.inicializar();
 
 		CtrlDataFactory.getInstance().getCtrlPartida().insertaPartida(p);
+		
+		//per mantenir persistent les dades de les caselles
+		Casella[][] cs = p.obteCaselles();
+		for (int i = 0; i < 4; ++i) {
+			for (int j = 0; j < 4; ++j) {
+				Casella c = cs[i][j];
+				c.setCompoundkey(new CompoundKey(p.getIdPartida(), i+1, j+1));
+				CtrlDataFactory.getInstance().getCtrlCasella().insertaCasella(c);
+			}
+		}
 		
 		ArrayList<CasellaDTO> info = new ArrayList<CasellaDTO>();
 		info = p.casellesAmbNumero();
@@ -91,7 +103,18 @@ public class CntrlJugarPartida {
 				
 		}
 		if (res.isAcabada()) jugador.acualitzaAssoc(res.getPuntuacio(), p);
+		
+		//update de partida al BD
 		CtrlDataFactory.getInstance().getCtrlPartida().insertaPartida(p);
+		//update de les caselles al BD
+		Casella[][] cs = p.obteCaselles();
+		for (int i = 0; i < 4; ++i) {
+			for (int j = 0; j < 4; ++j) {
+				Casella c = cs[i][j];
+				c.setCompoundkey(new CompoundKey(p.getIdPartida(), i+1, j+1));
+				CtrlDataFactory.getInstance().getCtrlCasella().insertaCasella(c);
+			}
+		}
 		return res;
 	}
 	

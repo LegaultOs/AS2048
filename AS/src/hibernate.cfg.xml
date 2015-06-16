@@ -29,10 +29,11 @@
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
-        
+   
         <mapping class = "DomainLayer.Classes.Partida"/>
 		<mapping class = "DomainLayer.Classes.Jugador"/>
 		<mapping class = "DomainLayer.Classes.Joc2048"/>
+		<mapping class = "DomainLayer.Classes.Casella"/>
 	
         <!-- Drop and re-create the database schema on startup -->
 <!--         <property name="hbm2ddl.auto">create</property>  -->

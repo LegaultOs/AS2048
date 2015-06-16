@@ -6,26 +6,35 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class CompoundKey implements Serializable {
+	private int idPartida;
+	private int numColumna; 
+	private int numFila;
 	
-	private Integer numColumna; 
-	private Integer numFila;
-	
-	public CompoundKey(Integer numColumna, Integer numFila){
+	public CompoundKey(int idPartida, int numColumna, int numFila){
+		this.setIdPartida(idPartida);
 		this.numColumna = numColumna;
 		this.numFila = numFila; 
 	}
 	
-	public Integer getNumColumna() {
+	public int getNumColumna() {
 		return numColumna;
 	}
 	public void setNumColumna(Integer numColumna) {
 		this.numColumna = numColumna;
 	}
-	public Integer getNumFila() {
+	public int getNumFila() {
 		return numFila;
 	}
 	public void setNumFila(Integer numFila) {
 		this.numFila = numFila;
+	}
+
+	public int getIdPartida() {
+		return idPartida;
+	}
+
+	public void setIdPartida(int idPartida) {
+		this.idPartida = idPartida;
 	}
 	
 	

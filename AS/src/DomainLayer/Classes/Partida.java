@@ -352,4 +352,8 @@ public class Partida implements Serializable{
 		return new MoureCasellaDTO(b, m, espaiblanc);
 	}
 
+	public Casella[][] obteCaselles() {
+		return casella;
+	}
+
 }

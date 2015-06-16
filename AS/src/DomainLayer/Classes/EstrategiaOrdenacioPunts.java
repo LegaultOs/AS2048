@@ -10,16 +10,14 @@ import Domain.DTO.RankingDTO;
 public class EstrategiaOrdenacioPunts implements EstrategiaOrdenacio {
 
 	@Override
-	public RankingDTO getRanquing(ArrayList<Jugador> jug, int cont) {
-		System.out.println("-------------------------------------------"+jug.size());
+	public RankingDTO getRanquing(ArrayList<Jugador> jug, int cont) throws Exception{
 		ArrayList<JugadorDTO> ranking = new ArrayList<JugadorDTO>();
-		for(Jugador j : jug)     //hay que recuperar les partidas jugadas
+		for(Jugador j : jug)     //hay que recuperar les partidas jugadas para este caso
 		{
 			JugadorDTO player = new JugadorDTO();
 			player.setUsername(j.getUsername());
 			player.setPunt(j.getMillorPuntuacio());
 			cont+=j.numPartidaJugada();
-			System.out.println("-------------------------------------------"+j.numPartidaJugada());
 			ranking.add(player);
 		}
 

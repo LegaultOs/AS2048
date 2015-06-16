@@ -7,6 +7,6 @@ import Domain.DTO.RankingDTO;
 
 public interface EstrategiaOrdenacio {
 
-	public RankingDTO getRanquing(ArrayList<Jugador> jug,int cont);
+	public RankingDTO getRanquing(ArrayList<Jugador> jug,int cont) throws Exception;
 
 }

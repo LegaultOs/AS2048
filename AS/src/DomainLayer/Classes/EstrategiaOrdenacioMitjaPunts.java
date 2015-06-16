@@ -10,7 +10,7 @@ import Domain.DTO.RankingDTO;
 public class EstrategiaOrdenacioMitjaPunts implements EstrategiaOrdenacio {
 
 	@Override
-	public RankingDTO getRanquing(ArrayList<Jugador> jug, int cont) {
+	public RankingDTO getRanquing(ArrayList<Jugador> jug, int cont) throws Exception {
 		ArrayList<JugadorDTO> ranking = new ArrayList<JugadorDTO>();
 		for(Jugador j : jug)
 		{

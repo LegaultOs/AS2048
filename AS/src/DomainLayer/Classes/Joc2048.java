@@ -7,14 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import sun.jdbc.odbc.OdbcDef;
+
 import Domain.DTO.RankingDTO;
 
 @Entity
 public class Joc2048 {
 	
 	private static Joc2048 instance;
-	@Transient
-	private EstrategiaOrdenacio ordenacio;
 	
 	@Column
 	private int idPartida;	
@@ -26,6 +26,8 @@ public class Joc2048 {
 	@Id
 	@Column
 	private int idArtificial = 1;  //es un id artificial para guardar en bd
+
+	private static EstrategiaOrdenacio ordenacio;  //se guarda con un string depende de tipo
 	
 	private Joc2048()
 	{	
@@ -53,13 +55,15 @@ public class Joc2048 {
 	
 	public void assignaEstrategiaOrdenacioPunts(EstrategiaOrdenacio op)
 	{
-		if(op.getClass().equals(EstrategiaOrdenacioPunts.class))
-			ordenacio=op;
-			estrategia = "Punts";
+		if(op.getClass().equals(EstrategiaOrdenacioPunts.class)) {
+			this.ordenacio=op;
+			this.estrategia = "Punts";
+		}
 	}
 	
-	//@ tipo de retorno ha cambiado respecto entrega anterior, porque out cont es dificil con java 
-	public RankingDTO obtenirRanquing(ArrayList<Jugador>jug ,int cont)
+	//@ tipo de retorno ha cambiado respecto entrega anterior, porque el parametro out cont 
+	//es dificil de manejar con java 
+	public RankingDTO obtenirRanquing(ArrayList<Jugador>jug ,int cont) throws Exception
 	{
 		return ordenacio.getRanquing(jug, cont);
 	}

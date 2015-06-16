@@ -80,6 +80,7 @@ public class JugarPartidaController {
 		} 
 		catch (Exception e) {
 			if(e.getMessage().equals("noHiHaPartides")) jpv.mostrarNoPartidaJugada();
+			else System.out.print(e.getMessage());
 		}
 	}
 	

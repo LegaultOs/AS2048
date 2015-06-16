@@ -70,7 +70,7 @@ public class JugarPartidaView {
 	}
 
 	public void tancar() {
-		System.exit(0);// esto?
+		System.exit(0);
 		
 	}
 
@@ -82,8 +82,13 @@ public class JugarPartidaView {
 	}
 
 	public void mostrarNoPartidaJugada() {
-		Object[] options = {"Ok"};
-		int response=JOptionPane.showOptionDialog(null, "No hi ha partides jugades al sistema!", "",JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+		try {
+			Object[] options = {"Ok"};
+			int response=JOptionPane.showOptionDialog(null, "No hi ha partides jugades al sistema!", "",JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+		}
+		catch (Exception e) {
+			
+		}
 	}
 
 	public void mostrarRanking(ArrayList<JugadorDTO> rank) {

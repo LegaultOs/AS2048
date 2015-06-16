@@ -91,7 +91,7 @@ public class CntrlJugarPartida {
 				
 		}
 		if (res.isAcabada()) jugador.acualitzaAssoc(res.getPuntuacio(), p);
-		
+		CtrlDataFactory.getInstance().getCtrlPartida().insertaPartida(p);
 		return res;
 	}
 	

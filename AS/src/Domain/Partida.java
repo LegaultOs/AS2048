@@ -121,10 +121,9 @@ public class Partida implements Serializable{
 		{
 			n= (int) (Math.random() * casellabuida.size());
 			c1=casellabuida.get(n);
-			if(Math.random() > 0.1) randomN=2;
+			if(Math.random() > 0.2) randomN=2;   // Canvi respecte entrega anterior:  augmenta la possibilitat de que surti un 4
 			else randomN=4;
 			c1.setNum(randomN);
-			System.out.println(c1.dameNumeroDeFila() + " " + c1.dameNumeroDeColumna() + " " + c1.getNum());
 		}
 	}
 	

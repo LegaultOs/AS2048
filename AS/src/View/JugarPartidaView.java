@@ -42,15 +42,13 @@ public class JugarPartidaView {
 		actual.setVisible(true);
 	}
 
-	public void updateJoc(Integer puntuacio,
-			ArrayList<CasellaDTO> casellesAmbNumero) {
-		
+	//@Canvi respecte entrega anterior, es pasa a la vista tambe la millor puntuacio del jugador 
+	public void updateJoc(Integer puntuacio, Integer millorP, ArrayList<CasellaDTO> casellesAmbNumero) {
 		MovimentDTO info = new MovimentDTO();
 		info.setPuntuacio(puntuacio);
+		info.setMillorPunt(millorP);
 		info.setCasellesAmbNumero(casellesAmbNumero);
-		((gameWindow)actual).actualitzarVista(info);
-		
-		
+		((gameWindow) actual).actualitzarVista(info);
 	}
 
 	public void mostrarWindowPerduda() {
@@ -58,7 +56,7 @@ public class JugarPartidaView {
 		
 	}
 
-	public void mostrarWindowGuanyada() {
+	public void mostrarWindowGuanyada(String punt) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -69,11 +69,11 @@ public class JugarPartidaController {
 		jpv.mostrarJoc(res.getPuntuacio(), res.getMillorPuntuacio(), res.getInfo());
 	}
 	
-	public void PrFerMoviment(String codigo) {
-		MovimentDTO res = cjp.ferMoviment(codigo);
-		if(res.isAcabada()==false && res.isGuanyada()==false) jpv.updateJoc(res.getPuntuacio(),res.getCasellesAmbNumero());//No actualizamos el High score cuando el current lo sobrepasa?
+	public void PrFerMoviment(String tipus) {
+		MovimentDTO res = cjp.ferMoviment(tipus);
+		if(res.isAcabada()==false && res.isGuanyada()==false) jpv.updateJoc(res.getPuntuacio(), res.getMillorPunt(), res.getCasellesAmbNumero());//No actualizamos el High score cuando el current lo sobrepasa?
 		else if(res.isAcabada()==true && res.isGuanyada()==false) jpv.mostrarWindowPerduda();
-		else if(res.isGuanyada()==true) jpv.mostrarWindowGuanyada();
+		else if(res.isGuanyada()==true) jpv.mostrarWindowGuanyada(res.getPuntuacio().toString());
 	}
 	
 	public void PrOkAConsultar()

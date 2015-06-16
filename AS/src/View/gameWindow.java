@@ -90,150 +90,6 @@ public class gameWindow extends JFrame {
 			}
 		}
 		
-		/*JLabel c00 = new JLabel("New label"); //dibujando las casellas
-		c00.setHorizontalAlignment(SwingConstants.CENTER);
-		c00.setOpaque(true);
-		c00.setForeground(new Color(0, 0, 0));
-		c00.setBackground(new Color(255, 153, 102));
-		c00.setBounds(10, 11, 68, 62);
-		panel.add(c00);
-		casillas[0][0] = c00;
-
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setOpaque(true);
-		lblNewLabel_5.setForeground(new Color(0, 0, 0));
-		lblNewLabel_5.setBackground(new Color(255, 153, 102));
-		lblNewLabel_5.setBounds(10, 84, 68, 62);
-		panel.add(lblNewLabel_5);
-		casillas[0][1] = lblNewLabel_5;
-
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_6.setOpaque(true);
-		lblNewLabel_6.setForeground(new Color(0, 0, 0));
-		lblNewLabel_6.setBackground(new Color(255, 153, 102));
-		lblNewLabel_6.setBounds(10, 157, 68, 61);
-		panel.add(lblNewLabel_6);
-		casillas[0][2] = lblNewLabel_6;
-
-		JLabel lblNewLabel_7 = new JLabel("New label");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_7.setOpaque(true);
-		lblNewLabel_7.setForeground(new Color(0, 0, 0));
-		lblNewLabel_7.setBackground(new Color(255, 153, 102));
-		lblNewLabel_7.setBounds(10, 229, 68, 64);
-		panel.add(lblNewLabel_7);
-		casillas[0][3] = lblNewLabel_7;
-
-		JLabel lblNewLabel_8 = new JLabel("New label");
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_8.setOpaque(true);
-		lblNewLabel_8.setForeground(new Color(0, 0, 0));
-		lblNewLabel_8.setBackground(new Color(255, 153, 102));
-		lblNewLabel_8.setBounds(88, 11, 68, 62);
-		panel.add(lblNewLabel_8);
-		casillas[1][0] = lblNewLabel_8;
-
-		JLabel lblNewLabel_9 = new JLabel("New label");
-		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_9.setOpaque(true);
-		lblNewLabel_9.setForeground(new Color(0, 0, 0));
-		lblNewLabel_9.setBackground(new Color(255, 153, 102));
-		lblNewLabel_9.setBounds(244, 11, 68, 62);
-		panel.add(lblNewLabel_9);
-		casillas[1][1] = lblNewLabel_9;
-
-		JLabel lblNewLabel_10 = new JLabel("New label");
-		lblNewLabel_10.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_10.setOpaque(true);
-		lblNewLabel_10.setForeground(new Color(0, 0, 0));
-		lblNewLabel_10.setBackground(new Color(255, 153, 102));
-		lblNewLabel_10.setBounds(166, 11, 68, 62);
-		panel.add(lblNewLabel_10);
-		casillas[1][2] = lblNewLabel_10;
-
-		JLabel lblNewLabel_11 = new JLabel("New label");
-		lblNewLabel_11.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_11.setOpaque(true);
-		lblNewLabel_11.setForeground(new Color(0, 0, 0));
-		lblNewLabel_11.setBackground(new Color(255, 153, 102));
-		lblNewLabel_11.setBounds(88, 84, 68, 62);
-		panel.add(lblNewLabel_11);
-		casillas[1][3] = lblNewLabel_11;
-
-		JLabel lblNewLabel_12 = new JLabel("New label");
-		lblNewLabel_12.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_12.setOpaque(true);
-		lblNewLabel_12.setForeground(new Color(0, 0, 0));
-		lblNewLabel_12.setBackground(new Color(255, 153, 102));
-		lblNewLabel_12.setBounds(88, 157, 68, 61);
-		panel.add(lblNewLabel_12);
-		casillas[2][0] = lblNewLabel_12;
-
-		JLabel lblNewLabel_13 = new JLabel("New label");
-		lblNewLabel_13.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_13.setOpaque(true);
-		lblNewLabel_13.setForeground(new Color(0, 0, 0));
-		lblNewLabel_13.setBackground(new Color(255, 153, 102));
-		lblNewLabel_13.setBounds(88, 229, 68, 64);
-		panel.add(lblNewLabel_13);
-		casillas[2][1] = lblNewLabel_13;
-
-		JLabel lblNewLabel_14 = new JLabel("New label");
-		lblNewLabel_14.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_14.setOpaque(true);
-		lblNewLabel_14.setForeground(new Color(0, 0, 0));
-		lblNewLabel_14.setBackground(new Color(255, 153, 102));
-		lblNewLabel_14.setBounds(166, 84, 68, 62);
-		panel.add(lblNewLabel_14);
-		casillas[2][2] = lblNewLabel_14;
-
-		JLabel lblNewLabel_15 = new JLabel("New label");
-		lblNewLabel_15.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_15.setOpaque(true);
-		lblNewLabel_15.setForeground(new Color(0, 0, 0));
-		lblNewLabel_15.setBackground(new Color(255, 153, 102));
-		lblNewLabel_15.setBounds(166, 157, 68, 61);
-		panel.add(lblNewLabel_15);
-		casillas[2][3] = lblNewLabel_15;
-
-		JLabel lblNewLabel_16 = new JLabel("New label");
-		lblNewLabel_16.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_16.setOpaque(true);
-		lblNewLabel_16.setForeground(new Color(0, 0, 0));
-		lblNewLabel_16.setBackground(new Color(255, 153, 102));
-		lblNewLabel_16.setBounds(166, 229, 68, 64);
-		panel.add(lblNewLabel_16);
-		casillas[3][0] = lblNewLabel_16;
-
-		JLabel lblNewLabel_17 = new JLabel("New label");
-		lblNewLabel_17.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_17.setOpaque(true);
-		lblNewLabel_17.setForeground(new Color(0, 0, 0));
-		lblNewLabel_17.setBackground(new Color(255, 153, 102));
-		lblNewLabel_17.setBounds(244, 84, 68, 62);
-		panel.add(lblNewLabel_17);
-		casillas[3][1] = lblNewLabel_17;
-
-		JLabel lblNewLabel_18 = new JLabel("New label");
-		lblNewLabel_18.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_18.setOpaque(true);
-		lblNewLabel_18.setForeground(new Color(0, 0, 0));
-		lblNewLabel_18.setBackground(new Color(255, 153, 102));
-		lblNewLabel_18.setBounds(244, 157, 68, 61);
-		panel.add(lblNewLabel_18);
-		casillas[3][2] = lblNewLabel_18;
-
-		JLabel lblNewLabel_19 = new JLabel("New label");
-		lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_19.setOpaque(true);
-		lblNewLabel_19.setForeground(new Color(0, 0, 0));
-		lblNewLabel_19.setBackground(new Color(255, 153, 102));
-		lblNewLabel_19.setBounds(244, 229, 68, 64);
-		panel.add(lblNewLabel_19);
-		casillas[3][3] = lblNewLabel_19;*/
-		
 		MovimentDTO info = new MovimentDTO();
 		info.setMillorPunt(millorPunt);
 		info.setPuntuacio(punt);
@@ -244,26 +100,26 @@ public class gameWindow extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				int code = e.getKeyCode();
 				// caso de uso Mover casilla
-				String codigo = new String();
+				String tipus = new String();
 				switch (code) {
 				case KeyEvent.VK_UP:
-					codigo = "amunt";
+					tipus = "amunt";
 					break;
 				case KeyEvent.VK_DOWN:
-					codigo = "avall";
+					tipus = "avall";
 					break;
 				case KeyEvent.VK_LEFT:
-					codigo = "esquerra";
+					tipus = "esquerra";
 					break;
 				case KeyEvent.VK_RIGHT:
-					codigo = "dreta";
+					tipus = "dreta";
 					break;
 				default:
-					codigo = "-1";
+					tipus = "-1";
 					break;
 				}
 
-				if (!codigo.equals("-1"))cv.PrFerMoviment(codigo);
+				if (!tipus.equals("-1")) cv.PrFerMoviment(tipus);
 			}
 
 			public void keyReleased(KeyEvent e) {
@@ -275,8 +131,6 @@ public class gameWindow extends JFrame {
 
 		
 	}
-
-	
 
 	public void actualitzarVista(MovimentDTO info) {
 		setCasellas(info.getCasellesAmbNumero());

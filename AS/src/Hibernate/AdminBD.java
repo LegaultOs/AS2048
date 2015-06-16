@@ -75,6 +75,7 @@ public class AdminBD {
 		UsuariRegistrat ur = new UsuariRegistrat("wangyang", "Ye", "ywy", "1234");
 		CtrlDataFactory.getInstance().getCtrlUsuariRegistrat().insertaUsuari(ur);
 		Jugador j = new Jugador("Olga", "Carbo", "olgaC", "hola", "gmail");
+		j.setMillorPuntuacio(100);
 		CtrlDataFactory.getInstance().getCtrlJugador().insertaJugador(j);
 	}
 

@@ -14,9 +14,11 @@ public class ServiceLocator {
 	private static ServiceLocator instance;
 	private Map services = new HashMap();
 	
+	
+
 	private ServiceLocator(){
 		
-		//loadService("ServeiMissatgeria", new ServeiMissatgeria());
+		loadService("ServeiMissatgeria", new ServeiMissatgeria());
 		
 	}
 
@@ -29,13 +31,13 @@ public class ServiceLocator {
 		return instance;
 	}
 	
+	
 	public static Object find(String key){
 	      return instance.services.get(key);
-	}
-	
+	  }
 	private void loadService (String key, Object service) {
 		instance.services.put(key, service);
-	}
+	  }
 
 	
 }

@@ -1,6 +1,8 @@
 package DomainLayer.Adapters;
 
+import DomainLayer.ServiceLocator.ServeiMissatgeria;
 import DomainLayer.ServiceLocator.ServiceLocator;
+
 
 public class MissatgeriaAdapter implements IMissatgeriaAdapter {
 
@@ -8,9 +10,9 @@ public class MissatgeriaAdapter implements IMissatgeriaAdapter {
 	public void enviarMissatge(String miss,String email) {
 		ServiceLocator sl = ServiceLocator.getInstance();
 		
-		//ServeiMissatgeria sm=(ServeiMissatgeria)sl.find("ServeiMissatgeria");
+		ServeiMissatgeria sm=(ServeiMissatgeria)sl.find("ServeiMissatgeria");
 		
-		//sm.enviarMissatge(miss,email);
+		sm.enviarMissatge(miss,email);
 		
 	}
 

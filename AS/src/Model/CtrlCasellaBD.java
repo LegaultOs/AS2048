@@ -2,9 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
-import Domain.Casella;
-import Domain.ICtrlCasella;
-import Domain.Partida;
+import DomainLayer.Classes.Casella;
+import DomainLayer.Classes.Partida;
+import DomainLayer.DataInterface.ICtrlCasella;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,8 +15,7 @@ public class CtrlCasellaBD implements ICtrlCasella {
 
 	@Override
 	public Casella getCasella(int id, int fila, int col) {
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		Casella casella = new Casella(fila,col); 
@@ -29,8 +28,7 @@ public class CtrlCasellaBD implements ICtrlCasella {
 	}
 
 	public void insertaCasella(Casella casella){
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		

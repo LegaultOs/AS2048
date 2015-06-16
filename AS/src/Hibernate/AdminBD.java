@@ -4,10 +4,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import Domain.CtrlDataFactory;
-import Domain.Jugador;
-import Domain.Partida;
-import Domain.UsuariRegistrat;
+import DomainLayer.Classes.Jugador;
+import DomainLayer.Classes.Partida;
+import DomainLayer.Classes.UsuariRegistrat;
+import DomainLayer.DataInterface.CtrlDataFactory;
 
 public class AdminBD {
 	

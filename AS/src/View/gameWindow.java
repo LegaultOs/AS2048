@@ -13,11 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import Domain.CntrlJugarPartida;
-import Domain.Partida;
 import Domain.DTO.CasellaDTO;
 import Domain.DTO.InfoPartidaDTO;
 import Domain.DTO.MovimentDTO;
+import DomainLayer.Classes.Partida;
+import DomainLayer.Controllers.CntrlJugarPartida;
 
 public class gameWindow extends JFrame {
 
@@ -135,7 +135,11 @@ public class gameWindow extends JFrame {
 	public void actualitzarVista(MovimentDTO info) {
 		setCasellas(info.getCasellesAmbNumero());
 		puntosActuales.setText(info.getPuntuacio().toString());
-		if(info.getMillorPunt()!=null) maxPunt.setText(info.getMillorPunt().toString());
+		if(info.getMillorPunt()!=null) {
+			if (info.getMillorPunt() >= info.getPuntuacio())
+				maxPunt.setText(info.getMillorPunt().toString());
+			else maxPunt.setText(info.getPuntuacio().toString());
+		}
 		this.repaint();
 		this.revalidate();
 	}

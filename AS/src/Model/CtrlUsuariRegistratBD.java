@@ -7,15 +7,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import Domain.ICtrlUsuariRegistrat;
-import Domain.UsuariRegistrat;
+import DomainLayer.Classes.UsuariRegistrat;
+import DomainLayer.DataInterface.ICtrlUsuariRegistrat;
 
 public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 
 	@Override
 	public UsuariRegistrat getUsuari(String userN) throws Exception {
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		UsuariRegistrat usuari = new UsuariRegistrat(); 
@@ -29,8 +28,7 @@ public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 
 	@Override
 	public void insertaUsuari(UsuariRegistrat usuari){
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		session.saveOrUpdate(usuari);

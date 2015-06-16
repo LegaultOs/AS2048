@@ -30,8 +30,8 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         
-        <mapping class = "Domain.Partida"/>
-		<mapping class = "Domain.Jugador"/>
+        <mapping class = "DomainLayer.Classes.Partida"/>
+		<mapping class = "DomainLayer.Classes.Jugador"/>
 	
         <!-- Drop and re-create the database schema on startup -->
 <!--         <property name="hbm2ddl.auto">create</property>  -->

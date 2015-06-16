@@ -5,10 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import Domain.Casella;
-import Domain.ICtrlJoc2048;
-import Domain.Joc2048;
-import Domain.UsuariRegistrat;
+import DomainLayer.Classes.Casella;
+import DomainLayer.Classes.Joc2048;
+import DomainLayer.Classes.UsuariRegistrat;
+import DomainLayer.DataInterface.ICtrlJoc2048;
 
 public class CtrlJoc2048BD implements ICtrlJoc2048 {
 
@@ -21,8 +21,7 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 		
 		new SchemaExport(config).create(true, true);
 		
-		SessionFactory factory = config.buildSessionFactory(); 
-		Session session = factory.getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		
 		session.beginTransaction(); 
 		
@@ -38,9 +37,7 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 		
 		new SchemaExport(config).create(true, true);
 		
-		SessionFactory factory = config.buildSessionFactory(); 
-		Session session = factory.getCurrentSession(); 
-		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		joc.setId(1);

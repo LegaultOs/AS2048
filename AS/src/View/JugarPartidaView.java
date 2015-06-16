@@ -52,13 +52,21 @@ public class JugarPartidaView {
 	}
 
 	public void mostrarWindowPerduda() {
-		// TODO Auto-generated method stub
-		
+		Object[] options = {"Ok"};
+		int response=JOptionPane.showOptionDialog(null, "Has perdut la partida", "Quina pena!",JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+		if(response==0) {
+			actual.dispose();
+			JugarPartidaController.getInstance().PrOkAConsultar();
+		}
 	}
 
 	public void mostrarWindowGuanyada(String punt) {
-		// TODO Auto-generated method stub
-		
+		Object[] options = {"Ok"};
+		int response=JOptionPane.showOptionDialog(null, "Has guanyat la partida! puntuacio:" + punt, "Felicitats!",JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+		if(response==0) {
+			actual.dispose();
+			JugarPartidaController.getInstance().PrOkAConsultar();
+		}
 	}
 
 	public void tancar() {
@@ -67,17 +75,18 @@ public class JugarPartidaView {
 	}
 
 	public void mostrarVolConsultar() {
-		// TODO Auto-generated method stub
-		
+		Object[] options = {"Si", "No"};
+		int response=JOptionPane.showOptionDialog(null, "Vols consultar el ranking?", "",JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+		if(response==0) JugarPartidaController.getInstance().PrVullConsultar();
+		else tancar();
 	}
 
 	public void mostrarNoPartidaJugada() {
-		// TODO Auto-generated method stub
-		
+		Object[] options = {"Ok"};
+		int response=JOptionPane.showOptionDialog(null, "No hi ha partides jugades al sistema!", "",JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 	}
 
 	public void mostrarRanking(ArrayList<JugadorDTO> rank) {
-		
 		Object[][] data = new Object[rank.size()][2];
 		int i =0;
 		for(JugadorDTO jd: rank)
@@ -85,12 +94,9 @@ public class JugarPartidaView {
 			data[i][0]=jd.getUsername();
 			data[i][1]=jd.getPunt();
 			i++;
-			
-			
 		}
 		actual= new rankingWindow(data);
 		actual.setVisible(true);
-		
 	}
 
 }

@@ -2,8 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
-import Domain.ICtrlPartida;
-import Domain.Partida;
+import DomainLayer.Classes.Partida;
+import DomainLayer.DataInterface.ICtrlPartida;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -15,8 +16,7 @@ public class CtrlPartidaBD implements ICtrlPartida {
 
 	@Override
 	public Partida getPartida(int idPartida) {
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		Partida partida = new Partida(idPartida);
@@ -26,8 +26,7 @@ public class CtrlPartidaBD implements ICtrlPartida {
 	}
 
 	public void insertaPartida(Partida partida){
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		session.saveOrUpdate(partida);
@@ -36,8 +35,7 @@ public class CtrlPartidaBD implements ICtrlPartida {
 	
 	@Override
 	public boolean existeix(int idPartida) {
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		Partida partida = new Partida(idPartida); 

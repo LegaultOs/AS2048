@@ -19,14 +19,9 @@ public class rankingWindow extends JFrame {
 	private JTable table;
 	private JugarPartidaController cv;
 
-	
-
-	/**
-	 * Create the frame.
-	 */
 	public rankingWindow(Object[][] data) {
 		cv=JugarPartidaController.getInstance();
-		setTitle("Joc 2048 - ranking");
+		setTitle("Joc 2048 - Jugar Partida");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 340);
 		contentPane = new JPanel();
@@ -37,15 +32,14 @@ public class rankingWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 10, 422, 252);
 		contentPane.add(scrollPane);
-		String[] columnNames = {"Puntuació","Jugador" };
-		//Object[][] rowData = {{"ejemplo","ejemplo1"}};
+		String[] columnNames = {"Puntuacio","Jugador" };
 		table = new JTable(data,columnNames);
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				cv.PrOkAConsultar();
+				cv.PrOkMissatgeFi();
 			}
 		});
 		btnNewButton.setBounds(341, 279, 91, 23);

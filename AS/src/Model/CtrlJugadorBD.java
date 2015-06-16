@@ -1,20 +1,20 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import Domain.ICtrlJugador;
-import Domain.Jugador;
+import DomainLayer.Classes.Jugador;
+import DomainLayer.DataInterface.ICtrlJugador;
 
 public class CtrlJugadorBD implements ICtrlJugador {
 
 	public void insertaJugador(Jugador jugador){
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		session.saveOrUpdate(jugador);
@@ -23,8 +23,7 @@ public class CtrlJugadorBD implements ICtrlJugador {
 	
 	@Override
 	public Jugador getJugadorPerNom(String userN) {
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		Jugador jugador = new Jugador(); 
@@ -42,14 +41,16 @@ public class CtrlJugadorBD implements ICtrlJugador {
 
 	@Override
 	public ArrayList<Jugador> tots() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
+		session.beginTransaction(); 
+		List <Jugador> jugadors = session.createQuery("from Jugador").list();
+		session.getTransaction().commit();
+		return (ArrayList<Jugador>) jugadors;
 	}
 
 	@Override
 	public Jugador getJugadorPerEmail(String email) {
-		ConexionBD.getInstance();
-		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		Jugador jugador = new Jugador(); 

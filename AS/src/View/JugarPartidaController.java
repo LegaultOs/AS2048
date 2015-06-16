@@ -2,25 +2,16 @@ package View;
 
 import java.util.ArrayList;
 
-import Domain.CntrlJugarPartida;
-import Domain.CtrlDataFactory;
 import Domain.DTO.InfoPartidaDTO;
 import Domain.DTO.JugadorDTO;
 import Domain.DTO.MovimentDTO;
+import DomainLayer.Controllers.CntrlJugarPartida;
 
 public class JugarPartidaController {
 	
-	/*private gameWindow gw;
-	private loginWindow lw;
-	private menuWindow mw;
-	private rankingWindow rw;
-	private startWindow sw;*/
-	
-	//la duda aqu� es si les devolvemos ventanas nuevas o le devolvemos la ventana en el estado que tenia antes.
 	private CntrlJugarPartida cjp;
 	private JugarPartidaView jpv;
 	private static JugarPartidaController instance;
-	
 	
 	public static JugarPartidaController getInstance()
 	{
@@ -83,13 +74,12 @@ public class JugarPartidaController {
 	
 	public void PrVullConsultar()
 	{
-		boolean ex=false;
 		try {
 			ArrayList<JugadorDTO> rank= cjp.obtenirRanking();
-			 jpv.mostrarRanking(rank);
+			jpv.mostrarRanking(rank);
 		} 
 		catch (Exception e) {
-			if(e.getMessage().equals("noHiHaPartides"))jpv.mostrarNoPartidaJugada();
+			if(e.getMessage().equals("noHiHaPartides")) jpv.mostrarNoPartidaJugada();
 		}
 	}
 	

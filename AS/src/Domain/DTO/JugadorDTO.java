@@ -6,8 +6,6 @@ public class JugadorDTO {
 	private String username;
 	private int punt;
 
-
-
 	public JugadorDTO()
 	{}
 

@@ -23,7 +23,7 @@ public class menuWindow extends JFrame {
 	 */
 	public menuWindow() {
 		cv=JugarPartidaController.getInstance();
-		setTitle("Joc 2048 - Jugar partida");
+		setTitle("Joc 2048 - Jugar Partida");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -31,11 +31,10 @@ public class menuWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton button = new JButton("Jugar Partida");
+		JButton button = new JButton("Jugar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cv.PrJugar();
-				
 				dispose();
 			}
 		});

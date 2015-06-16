@@ -1,7 +1,5 @@
 package View;
 
-import Domain.Jugador;
-import Domain.UsuariRegistrat;
 import Hibernate.AdminBD;
 
 public class Start {
@@ -13,8 +11,10 @@ public class Start {
 			try{
 				AdminBD abd = new AdminBD(); 
 				//abd.insertaPartida();
-				UsuariRegistrat j = abd.insertaUsuaris();
-				System.out.println(j.getNom() + " " + j.getCognom() + " " + j.getUsername() + " " + j.getPass() + " " + j.etsJugador());
+				//UsuariRegistrat j = abd.insertaUsuaris();
+				//System.out.println(j.getNom() + " " + j.getCognom() + " " + j.getUsername() + " " + j.getPass() + " " + j.etsJugador());
+				abd.insertaJugador();
+
 			}
 			catch (Exception e){ 	
 				System.out.println(e.getMessage()); 

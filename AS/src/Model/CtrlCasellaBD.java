@@ -15,16 +15,8 @@ public class CtrlCasellaBD implements ICtrlCasella {
 
 	@Override
 	public Casella getCasella(int id, int fila, int col) {
-		
-		AnnotationConfiguration config = new AnnotationConfiguration(); 
-		config.addAnnotatedClass(Casella.class); 
-		config.configure("hibernate.cfg.xml"); 
-		
-		new SchemaExport(config).create(true, true);
-		
-		SessionFactory factory = config.buildSessionFactory(); 
-		Session session = factory.getCurrentSession(); 
-		
+		ConexionBD.getInstance();
+		Session session = ConexionBD.getFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		Casella casella = new Casella(fila,col); 
@@ -37,21 +29,13 @@ public class CtrlCasellaBD implements ICtrlCasella {
 	}
 
 	public void insertaCasella(Casella casella){
-		
-		AnnotationConfiguration config = new AnnotationConfiguration(); 
-		config.addAnnotatedClass(Casella.class); 
-		config.configure("hibernate.cfg.xml"); 
-		
-		new SchemaExport(config).create(true, true);
-		
-		SessionFactory factory = config.buildSessionFactory(); 
-		Session session = factory.getCurrentSession(); 
-		
+		ConexionBD.getInstance();
+		Session session = ConexionBD.getFactory().getCurrentSession(); 
 		session.beginTransaction(); 
+		
 		
 		session.saveOrUpdate(casella);
 		session.getTransaction().commit(); 
-		session.close(); 		
 	}
 	
 	@Override

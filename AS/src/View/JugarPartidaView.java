@@ -16,25 +16,27 @@ public class JugarPartidaView {
 		
 	}
 	
-	public void mostrarJoc(Integer punt,Integer millorPunt,ArrayList<CasellaDTO> casellesAmbNumero) {
-		actual= new gameWindow(punt,millorPunt,casellesAmbNumero) ;
+	public void getStartWindow() {
+		actual= new startWindow();
 		actual.setVisible(true);
 	}
+	
 	public void mostrarLogin() {
-		actual.dispose();
 		actual= new loginWindow();
 		actual.setVisible(true);
 	}
+	
 	public void mostrarWindowJugar() {
 		actual.dispose();
 		actual= new menuWindow();
 		actual.setVisible(true);
 	}
-	public void getStartWindow() {
-		actual= new startWindow();
+	
+	public void mostrarJoc(Integer punt, Integer millorPunt, ArrayList<CasellaDTO> casellesAmbNumero) {
+		actual= new gameWindow(punt,millorPunt,casellesAmbNumero) ;
 		actual.setVisible(true);
 	}
-
+	
 	public void mostraMissatge(String string) {
 		loginWindow log = (loginWindow) actual;
 		log.mostraMissatge(string);
@@ -88,8 +90,6 @@ public class JugarPartidaView {
 			
 			
 		}
-		
-		
 		actual= new rankingWindow(data);
 		actual.setVisible(true);
 		

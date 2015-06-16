@@ -36,7 +36,7 @@ public class startWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//Cargaremos la ventana de login
 				cv.PrJugarPartida();
-				//dispose();
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(90, 86, 122, 23);

@@ -47,7 +47,6 @@ public class CtrlJoc2048BD implements ICtrlJoc2048 {
 		
 		session.saveOrUpdate(joc);
 		session.getTransaction().commit(); 
-		session.close(); 		
 	}
 
 }

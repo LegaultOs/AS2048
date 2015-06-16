@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
+import Domain.CtrlDataFactory;
 import Domain.Jugador;
 import Domain.Partida;
 import Domain.UsuariRegistrat;
@@ -68,6 +69,13 @@ public class AdminBD {
 		session.saveOrUpdate(p);
 		
 		session.getTransaction().commit(); 
+	}
+	
+	public void insertaJugador() {
+		UsuariRegistrat ur = new UsuariRegistrat("wangyang", "Ye", "ywy", "1234");
+		CtrlDataFactory.getInstance().getCtrlUsuariRegistrat().insertaUsuari(ur);
+		Jugador j = new Jugador("Olga", "Carbo", "olgaC", "hola", "gmail");
+		CtrlDataFactory.getInstance().getCtrlJugador().insertaJugador(j);
 	}
 
 }

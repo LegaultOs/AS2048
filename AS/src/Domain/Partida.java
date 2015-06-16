@@ -93,19 +93,12 @@ public class Partida implements Serializable{
 		{
 			for(int j=0; j<4;j++)
 			{
-				
-				CasellaDTO inf = casella[i][j].getInfo();
-				
+				CasellaDTO inf = new CasellaDTO(); 
+				inf = casella[i][j].Info();
 				if(inf.getNumero()!=null)
-				{
-					
 					result.add(inf);
-				}
-				
 			}
-			
 		}
-		
 		return result;
 	}
 	

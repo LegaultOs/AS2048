@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import Domain.Casella;
 import Domain.ICtrlUsuariRegistrat;
 import Domain.UsuariRegistrat;
 
@@ -15,43 +14,27 @@ public class CtrlUsuariRegistratBD implements ICtrlUsuariRegistrat {
 
 	@Override
 	public UsuariRegistrat getUsuari(String userN) throws Exception {
-			
-			AnnotationConfiguration config = new AnnotationConfiguration(); 
-			config.addAnnotatedClass(UsuariRegistrat.class); 
-			config.configure("hibernate.cfg.xml"); 
-			
-			new SchemaExport(config).create(true, true);
-			
-			SessionFactory factory = config.buildSessionFactory(); 
-			Session session = factory.getCurrentSession(); 
-			
-			session.beginTransaction(); 
-			
-			UsuariRegistrat usuari = new UsuariRegistrat(); 
-			usuari = (UsuariRegistrat) session.createQuery("from UsuariRegistrat where username = '"+userN+"'").uniqueResult();
-			if(usuari == null) throw new Exception("usernameNoExisteix");
-			
-			session.getTransaction().commit(); 
-			
-			return usuari;
-		}
+		ConexionBD.getInstance();
+		Session session = ConexionBD.getFactory().getCurrentSession(); 
+		session.beginTransaction(); 
+		
+		UsuariRegistrat usuari = new UsuariRegistrat(); 
+		usuari = (UsuariRegistrat) session.createQuery("from UsuariRegistrat where username = '"+userN+"'").uniqueResult();
+		if(usuari == null) throw new Exception("usernameNoExisteix");
+		
+		session.getTransaction().commit(); 
+		
+		return usuari;
+	}
 
+	@Override
 	public void insertaUsuari(UsuariRegistrat usuari){
-		
-		AnnotationConfiguration config = new AnnotationConfiguration(); 
-		config.addAnnotatedClass(UsuariRegistrat.class); 
-		config.configure("hibernate.cfg.xml"); 
-		
-		new SchemaExport(config).create(true, true);
-		
-		SessionFactory factory = config.buildSessionFactory(); 
-		Session session = factory.getCurrentSession(); 
-		
+		ConexionBD.getInstance();
+		Session session = ConexionBD.getFactory().getCurrentSession(); 
 		session.beginTransaction(); 
 		
 		session.saveOrUpdate(usuari);
 		session.getTransaction().commit(); 
-		session.close(); 		
 	}
 	
 	@Override

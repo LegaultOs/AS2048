@@ -5,14 +5,17 @@ public class CasellaDTO {
 	int i,j;
 	Integer numero;
 	
-	public CasellaDTO (int i,int j, int num)
+	public CasellaDTO () {
+		
+	}
+	
+	public CasellaDTO (int i,int j, Integer num)
 	{
 		this.i=i;
 		this.j=j;
-		this.numero=num;
-		
-		
+		this.numero=num;	
 	}
+	
 	public int getI() {
 		return i;
 	}

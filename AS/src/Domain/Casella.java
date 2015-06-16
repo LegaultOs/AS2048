@@ -45,11 +45,9 @@ public class Casella implements Serializable{
 		numeroColumna=j;
 	}
 
-	public CasellaDTO getInfo()
+	public CasellaDTO Info()  //canvi getInfo per Info per no pensi Hibernate es una columna
 	{
-		
-		return new CasellaDTO(numeroFila, numeroColumna, numero);
-		
+		return new CasellaDTO(numeroFila, numeroColumna, numero);	
 	}
 	
 	public boolean equals(Casella obj) {

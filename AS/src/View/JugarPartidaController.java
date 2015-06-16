@@ -51,9 +51,15 @@ public class JugarPartidaController {
 			cjp.ferAutenticacio(user, pass);
 			jpv.mostrarWindowJugar();
 		} catch (Exception e) {
-			if(e.getMessage().equals("usernameNoExisteix"))jpv.mostraMissatge("Nom d'usuari no existeix");
-			else if(e.getMessage().equals("pwdIncorrecte"))jpv.mostraMissatge("El password es incorrecte");
-			else if(e.getMessage().equals("usuariNoJugador"))jpv.mostraMissatge("L'usuari no es un jugador");
+			if(e.getMessage().equals("usernameNoExisteix")) {
+				jpv.mostraMissatge("Nom d'usuari no existeix");
+			}
+			else if(e.getMessage().equals("pwdIncorrecte")) {
+				jpv.mostraMissatge("El password es incorrecte");
+			}
+			else if(e.getMessage().equals("usuariNoJugador")) {
+				jpv.mostraMissatge("L'usuari no es un jugador");
+			}
 			//aqui iran todas las excepciones del login
 		}
 	}

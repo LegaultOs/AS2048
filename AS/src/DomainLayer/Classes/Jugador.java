@@ -82,7 +82,7 @@ public class Jugador extends UsuariRegistrat {
 	public void acualitzaAssoc(int puntuacio, Partida p) {
 		if (puntuacio > this.millorPuntuacio) this.millorPuntuacio = puntuacio;
 		partidesJugades.add(p);
-		System.out.println("-----------size de partides jugades--------------------------------"+partidesJugades.size());
+		p.setJugador(this);
 	}
 		
 	@Override

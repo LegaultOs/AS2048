@@ -75,8 +75,14 @@ public class AdminBD {
 		UsuariRegistrat ur = new UsuariRegistrat("wangyang", "Ye", "ywy", "1234");
 		CtrlDataFactory.getInstance().getCtrlUsuariRegistrat().insertaUsuari(ur);
 		Jugador j = new Jugador("Olga", "Carbo", "olgaC", "hola", "gmail");
+		Jugador j2 = new Jugador("max", "max", "max", "max", "max");
+		Jugador j3 = new Jugador("min", "min", "min", "min", "min");
 		j.setMillorPuntuacio(100);
+		j2.setMillorPuntuacio(2000);
+		j3.setMillorPuntuacio(0);
 		CtrlDataFactory.getInstance().getCtrlJugador().insertaJugador(j);
+		CtrlDataFactory.getInstance().getCtrlJugador().insertaJugador(j2);
+		CtrlDataFactory.getInstance().getCtrlJugador().insertaJugador(j3);
 	}
 
 }

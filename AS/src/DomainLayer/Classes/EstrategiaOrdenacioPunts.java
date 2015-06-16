@@ -27,7 +27,7 @@ public class EstrategiaOrdenacioPunts implements EstrategiaOrdenacio {
 				public int compare(JugadorDTO  j1, JugadorDTO  j2)
 				{
 
-					return  j1.getPunt()-j2.getPunt();
+					return j2.getPunt() - j1.getPunt();
 				}
 		});
 			

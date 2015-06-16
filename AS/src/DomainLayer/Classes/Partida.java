@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,6 +30,7 @@ public class Partida implements Serializable{
 	private int puntuacio;
 	private Casella[][] casella; //relacion con la tabla de casella
 	
+	private Jugador jugador;
 	
 	public Partida () {	
 	}
@@ -354,6 +356,14 @@ public class Partida implements Serializable{
 
 	public Casella[][] obteCaselles() {
 		return casella;
+	}
+	@ManyToOne(cascade = CascadeType.ALL)
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
 	}
 
 }
